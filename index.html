@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hairspring — Support</title>
+<style>
+  :root { color-scheme: light dark; --brass: #a8853c; }
+  @media (prefers-color-scheme: dark) { :root { --brass: #ccA85c; } }
+  body { max-width: 42rem; margin: 3rem auto; padding: 0 1.25rem;
+         font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  h1 { font-size: 1.7rem; margin-bottom: .2rem; letter-spacing: -0.01em; }
+  .tag { color: #777; margin-top: 0; }
+  h2 { font-size: 1.05rem; margin-top: 2.4rem; padding-bottom: .3rem;
+       border-bottom: 1px solid var(--brass); }
+  h3 { font-size: 1rem; margin-bottom: .2rem; }
+  h3 + p { margin-top: .2rem; }
+  a { color: var(--brass); }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #8884;
+           color: #777; font-size: .9rem; }
+</style>
+</head>
+<body>
+
+<h1>Hairspring</h1>
+<p class="tag">A timegrapher for mechanical watches — that tells you when it can't measure.</p>
+
+<h2>Support</h2>
+<p>Email <a href="mailto:moganes@gmail.com">moganes@gmail.com</a>. Include your
+iPhone model and, if a measurement went wrong, the diagnostic log — see below.
+Replies usually within a couple of days.</p>
+
+<h2>Getting a good measurement</h2>
+
+<h3>Where to put the watch</h3>
+<p>Beside the phone, not on it. Lay the phone flat on a hard surface — wood or
+stone, not cloth or a cushion — and set the watch dial-up about 5 cm from the
+bottom edge, crown toward the phone. The microphone is at the bottom edge, and
+a watch resting on the handset muffles it.</p>
+
+<h3>Wind the watch first</h3>
+<p>A watch running on the last of its reserve reads low and ragged. Give it a
+full wind and a minute to settle before measuring.</p>
+
+<h3>A quiet room helps more than you'd think</h3>
+<p>A ticking wall clock nearby can genuinely defeat the beat detection — its
+ticks arrive at a steady period too. If a measurement will not lock in a room
+with another clock in it, move one of them.</p>
+
+<h2>Common questions</h2>
+
+<h3>It says "steady ticking, but its beat cannot be confirmed"</h3>
+<p>Hairspring can hear something periodic but cannot establish which beat rate
+it is. Almost always placement: re-seat the watch on a harder surface, closer
+to the bottom edge, and make sure nothing is covering the microphone.</p>
+
+<h3>Why is amplitude shown as a range?</h3>
+<p>Because that is what the method honestly supports. Amplitude is derived from
+the gap between two escapement noises, and there are several defensible ways to
+define exactly where each one begins — they differ by tens of degrees. Reading
+the range keeps you from over-trusting a single figure. The measurement
+underneath it is repeatable to a fraction of a degree.</p>
+
+<h3>Why does it sometimes refuse to show a rate?</h3>
+<p>Because it could not measure one it would stand behind. Too much scatter in
+the detected ticks, a result no mechanical watch could produce, or timing so
+disturbed the beats cannot be numbered at all. Each refusal names its cause and
+what to change. This is deliberate: a plausible-looking wrong number is worse
+than no number.</p>
+
+<h3>Does it work on quartz watches?</h3>
+<p>No. Hairspring measures a mechanical escapement. A quartz watch's stepper
+motor ticks once per second, which this is not built to analyse.</p>
+
+<h3>Does it need the internet?</h3>
+<p>No. Hairspring makes no network requests at all. Audio is analysed on your
+device and never leaves it.</p>
+
+<h2>Sending a diagnostic log</h2>
+<p>Hairspring writes a log of the last measurement to its own folder. Open the
+<strong>Files</strong> app → <strong>On My iPhone</strong> →
+<strong>Hairspring</strong> → <code>detector.log</code>, and share it by email.
+It contains signal levels and timing statistics — no personal data, no audio.</p>
+
+<footer>
+<a href="privacy.html">Privacy Policy</a> · © 2026 Marat Oganesyan
+</footer>
+
+</body>
+</html>
