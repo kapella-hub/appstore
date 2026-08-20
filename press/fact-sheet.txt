@@ -1,0 +1,49 @@
+HAIRSPRING — FACT SHEET
+========================
+
+App name        Hairspring Timegrapher
+Developer       Marat Oganesyan (independent)
+Released        August 2026 (version 1.0)
+Price           Free — no subscription, no in-app purchase, no ads,
+                no account, no sign-in
+Platform        iPhone, iOS 18 or later (iPhone only, by design:
+                the measurement wants the handset lying flat with the
+                watch beside the bottom microphone)
+Privacy         App Store nutrition label: Data Not Collected.
+                Audio is analysed on device and never transmitted.
+App Store       https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448
+Website         https://kapella-hub.github.io/appstore/
+Contact         moganes@gmail.com
+
+ONE-LINER
+Hairspring measures how well a mechanical watch keeps time, using the
+iPhone microphone — and tells you when it can't.
+
+WHAT IT DOES
+- Rate in seconds per day, with its measurement uncertainty computed
+  from the actual scatter of the detected beats
+- Beat error, measured from the escapement's own high-frequency signature
+- Amplitude, reported as a band, because that is what the acoustic
+  method honestly supports
+- Timing graph, position runs, PDF reports, measurement history
+- Measure the same watch twice and Hairspring states whether the two
+  readings statistically agree — the check no other timegrapher app offers
+
+WHAT MAKES IT DIFFERENT
+Hairspring refuses a rate it cannot defend. Too much scatter, an
+implausible result, or timing too disturbed to number the beats produces
+a stated refusal that names its cause and the fix — never a
+plausible-looking wrong number. The analysis band its beat detector uses
+was chosen by a pre-registered experiment: acceptance criteria written
+down before the data was collected, with the first failed attempt
+recorded as a failure.
+
+NAME NOTE
+Hairspring is unrelated to the discontinued watch-timing app of the same
+name by another developer, which left the App Store years ago.
+
+SCREENSHOTS
+Every screenshot is the real app rendered by the shipping binary — the
+project treats marketing the binary cannot reproduce the same as an
+invented measurement. The figures shown are ones the project actually
+measured.

@@ -3,13 +3,56 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hairspring — Support</title>
+<title>Hairspring — iPhone timegrapher for mechanical watches</title>
+<meta name="description" content="Hairspring measures your mechanical watch's rate, beat error, and amplitude with the iPhone microphone — and states the uncertainty of every reading. Free, no subscription, no account, measured entirely on device.">
+<link rel="canonical" href="https://kapella-hub.github.io/appstore/">
+
+<!-- iOS Safari shows a native banner linking to the listing. -->
+<meta name="apple-itunes-app" content="app-id=6797146448">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hairspring">
+<meta property="og:title" content="Hairspring — iPhone timegrapher for mechanical watches">
+<meta property="og:description" content="Rate, beat error, and amplitude by microphone — every reading with its uncertainty stated. Measure twice and Hairspring tells you whether the readings agree.">
+<meta property="og:url" content="https://kapella-hub.github.io/appstore/">
+<meta property="og:image" content="https://kapella-hub.github.io/appstore/icon-512.png">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1c1917">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Hairspring Timegrapher",
+  "operatingSystem": "iOS",
+  "applicationCategory": "UtilitiesApplication",
+  "description": "A timegrapher for mechanical watches. Measures rate, beat error, and amplitude with the iPhone microphone, states the uncertainty of every reading, and tells you when it cannot measure.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "url": "https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448",
+  "author": { "@type": "Person", "name": "Marat Oganesyan" },
+  "image": "https://kapella-hub.github.io/appstore/icon-512.png"
+}
+</script>
+
 <style>
-  :root { color-scheme: light dark; --brass: #a8853c; }
-  @media (prefers-color-scheme: dark) { :root { --brass: #ccA85c; } }
+  :root {
+    color-scheme: light dark;
+    --brass: #a8853c;
+    --steel: #3a5fa8;
+    --card: #f7f5f1;
+    --card-edge: #e4dfd5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --brass: #cca85c; --steel: #7d9fe0; --card: #26221e; --card-edge: #3c362e; }
+  }
   body { max-width: 42rem; margin: 3rem auto; padding: 0 1.25rem;
          font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-  h1 { font-size: 1.7rem; margin-bottom: .2rem; letter-spacing: -0.01em; }
+  h1 { font-family: ui-serif, "New York", Georgia, serif;
+       font-size: 2rem; margin-bottom: .2rem; letter-spacing: -0.01em; }
   .tag { color: #777; margin-top: 0; }
   h2 { font-size: 1.05rem; margin-top: 2.4rem; padding-bottom: .3rem;
        border-bottom: 1px solid var(--brass); }
@@ -18,12 +61,112 @@
   a { color: var(--brass); }
   footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #8884;
            color: #777; font-size: .9rem; }
+
+  /* Hero */
+  .masthead { display: flex; align-items: center; gap: 16px; }
+  .masthead img { width: 76px; height: 76px; border-radius: 17px; }
+  .lede { font-family: ui-serif, "New York", Georgia, serif;
+          font-size: 1.45rem; line-height: 1.35; margin: 1.6rem 0 0;
+          text-wrap: balance; }
+  .lede em { font-style: italic; color: var(--brass); }
+
+  /* The specimen: two consecutive readings and the verdict between them. */
+  .specimen { margin: 1.5rem 0 0; padding: 1.1rem 1.25rem 1rem;
+              background: var(--card); border: 1px solid var(--card-edge);
+              border-radius: 14px; }
+  .specimen svg { display: block; width: 100%; height: auto; margin-bottom: .9rem; }
+  .specimen table { width: 100%; border-collapse: collapse;
+                    font: 500 .95rem/1.5 ui-monospace, "SF Mono", Menlo, monospace;
+                    font-variant-numeric: tabular-nums; }
+  .specimen td { padding: .15rem 0; }
+  .specimen td:first-child { color: #777; font-size: .8rem; text-transform: uppercase;
+                             letter-spacing: .08em; }
+  .specimen td:last-child { text-align: right; }
+  .specimen .verdict { border-top: 1px solid var(--card-edge); }
+  .specimen .verdict td { padding-top: .5rem; color: var(--brass); }
+  .specimen figcaption { margin-top: .8rem; color: #777; font-size: .85rem; }
+
+  .get { margin: 1.6rem 0 .4rem; display: flex; align-items: center;
+         gap: 18px; flex-wrap: wrap; }
+  .get img { height: 54px; display: block; }
+  .get p { margin: 0; color: #777; font-size: .9rem; line-height: 1.45; }
+
+  @media (max-width: 30rem) {
+    .masthead img { width: 60px; height: 60px; border-radius: 13.5px; }
+    .lede { font-size: 1.25rem; }
+  }
 </style>
 </head>
 <body>
 
-<h1>Hairspring</h1>
-<p class="tag">A timegrapher for mechanical watches — that tells you when it can't measure.</p>
+<header class="masthead">
+  <img src="icon-512.png" alt="" width="512" height="512">
+  <div>
+    <h1>Hairspring</h1>
+    <p class="tag">A timegrapher for mechanical watches.</p>
+  </div>
+</header>
+
+<p class="lede">Any app can print a rate. Hairspring measures again — and tells
+you whether the two readings <em>agree</em>.</p>
+
+<figure class="specimen">
+  <!-- A timegrapher trace: tick and tock rows, climbing at the measured rate. -->
+  <svg viewBox="0 0 560 72" role="img" aria-label="Timing trace: two dotted lines climbing gently, tick and tock beats of the escapement">
+    <g fill="var(--brass)">
+      <circle cx="10" cy="52" r="2.4"/><circle cx="50" cy="51" r="2.4"/>
+      <circle cx="90" cy="50" r="2.4"/><circle cx="130" cy="49" r="2.4"/>
+      <circle cx="170" cy="48" r="2.4"/><circle cx="210" cy="47" r="2.4"/>
+      <circle cx="250" cy="46" r="2.4"/><circle cx="290" cy="45" r="2.4"/>
+      <circle cx="330" cy="44" r="2.4"/><circle cx="370" cy="43" r="2.4"/>
+      <circle cx="410" cy="42" r="2.4"/><circle cx="450" cy="41" r="2.4"/>
+      <circle cx="490" cy="40" r="2.4"/><circle cx="530" cy="39" r="2.4"/>
+    </g>
+    <g fill="var(--steel)">
+      <circle cx="30" cy="33" r="2.4"/><circle cx="70" cy="32" r="2.4"/>
+      <circle cx="110" cy="31" r="2.4"/><circle cx="150" cy="30" r="2.4"/>
+      <circle cx="190" cy="29" r="2.4"/><circle cx="230" cy="28" r="2.4"/>
+      <circle cx="270" cy="27" r="2.4"/><circle cx="310" cy="26" r="2.4"/>
+      <circle cx="350" cy="25" r="2.4"/><circle cx="390" cy="24" r="2.4"/>
+      <circle cx="430" cy="23" r="2.4"/><circle cx="470" cy="22" r="2.4"/>
+      <circle cx="510" cy="21" r="2.4"/><circle cx="550" cy="20" r="2.4"/>
+    </g>
+  </svg>
+  <table>
+    <tr><td>Run 1</td><td>+2.1 ± 0.4 s/d</td></tr>
+    <tr><td>Run 2</td><td>+2.3 ± 0.4 s/d</td></tr>
+    <tr class="verdict"><td>Verdict</td><td>The readings agree</td></tr>
+  </table>
+  <figcaption>Every reading carries its uncertainty. When the signal won't
+  support a number, Hairspring says so — and names the fix — instead of
+  printing something plausible.</figcaption>
+</figure>
+
+<div class="get">
+  <a href="https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448">
+    <img src="appstore-badge.svg" alt="Download on the App Store">
+  </a>
+  <p>Free. No subscription, no account, no uploads —<br>
+  every measurement stays on your iPhone.</p>
+</div>
+
+<h2>What it reports</h2>
+<p>Lay the phone flat, set the watch beside it, and Hairspring listens to the
+escapement itself:</p>
+<ul>
+<li><strong>Rate</strong> in seconds per day, with its measurement uncertainty</li>
+<li><strong>Beat error</strong>, measured from the escapement's own
+high&#8209;frequency signature</li>
+<li><strong>Amplitude</strong>, reported as a band because that is what the
+method supports</li>
+<li><strong>Timing graph</strong>, position runs, PDF reports, and history</li>
+</ul>
+<p>It needs a mechanical (not quartz) watch. Rate is the measurement this
+method does best; amplitude and beat error are reported with their limits
+stated. If a reading can't be defended — too much scatter, an implausible
+result, timing too disturbed to number the beats — Hairspring refuses it and
+names the cause, because a plausible-looking wrong number is worse than no
+number.</p>
 
 <h2>Support</h2>
 <p>Email <a href="mailto:moganes@gmail.com">moganes@gmail.com</a> for help with
@@ -87,6 +230,8 @@ levels and timing statistics, not microphone audio. Review it first and share
 it by email only if you choose.</p>
 
 <footer>
+<a href="https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448">App Store</a> ·
+<a href="press.html">Press</a> ·
 <a href="privacy.html">Privacy Policy</a> · © 2026 Marat Oganesyan
 </footer>
 
