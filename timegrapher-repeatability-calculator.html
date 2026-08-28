@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Timegrapher Repeatability Calculator: Compare Two Readings</title>
+<meta name="description" content="Compare two mechanical-watch timegrapher rates and their fit uncertainty. See whether the readings agree, using a transparent repeatability rule.">
+<link rel="canonical" href="https://kapella-hub.github.io/appstore/timegrapher-repeatability-calculator.html">
+<meta name="apple-itunes-app" content="app-id=6797146448">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hairspring">
+<meta property="og:title" content="Timegrapher repeatability calculator">
+<meta property="og:description" content="Enter two rates and their fit uncertainty to see whether the timegrapher readings support each other.">
+<meta property="og:url" content="https://kapella-hub.github.io/appstore/timegrapher-repeatability-calculator.html">
+<meta property="og:image" content="https://kapella-hub.github.io/appstore/social/hairspring-repeatability.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hairspring compares two mechanical-watch timegrapher readings and reports whether they agree.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kapella-hub.github.io/appstore/social/hairspring-repeatability.png">
+<meta name="twitter:image:alt" content="Hairspring compares two mechanical-watch timegrapher readings and reports whether they agree.">
+
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1c1917">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Timegrapher Repeatability Calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "url": "https://kapella-hub.github.io/appstore/timegrapher-repeatability-calculator.html",
+      "description": "Compare two timegrapher rate readings and their fit uncertainty to determine whether they agree under the recorded conditions.",
+      "featureList": [
+        "Combines both readings' fit uncertainty",
+        "Applies a practical between-session floor",
+        "Runs locally without an account or data upload"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I compare two timegrapher readings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Enter both rate readings and each run's fit uncertainty. The calculator compares their absolute difference with the larger of twice their combined uncertainty and a 2.0 seconds-per-day floor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do agreeing readings prove that a timegrapher is accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Agreement demonstrates repeatability under the recorded conditions, not calibration against a trusted reference. Two readings can agree while sharing the same bias."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is there a 2 seconds-per-day floor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fit uncertainty describes scatter inside each run. It does not capture small changes in placement, wind state, temperature, or the watch between runs, so the floor prevents unrealistically tight comparisons."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    color-scheme: light dark;
+    --brass: #a8853c;
+    --steel: #3a5fa8;
+    --card: #f7f5f1;
+    --card-edge: #e4dfd5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --brass: #cca85c; --steel: #7d9fe0; --card: #26221e; --card-edge: #3c362e; }
+  }
+  body { max-width: 42rem; margin: 3rem auto; padding: 0 1.25rem;
+         font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  h1 { font-family: ui-serif, "New York", Georgia, serif;
+       font-size: 2.2rem; line-height: 1.15; margin-bottom: .6rem;
+       letter-spacing: -0.02em; text-wrap: balance; }
+  h2 { font-size: 1.08rem; margin-top: 2.5rem; padding-bottom: .3rem;
+       border-bottom: 1px solid var(--brass); }
+  h3 { font-size: 1rem; margin-bottom: .2rem; }
+  h3 + p { margin-top: .2rem; }
+  a { color: var(--brass); }
+  nav, footer { color: #777; font-size: .9rem; }
+  nav { margin-bottom: 2.2rem; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #8884; }
+  .lede { font-family: ui-serif, "New York", Georgia, serif;
+          font-size: 1.3rem; line-height: 1.4; text-wrap: balance; }
+  .note { margin: 1.5rem 0; padding: 1rem 1.2rem; background: var(--card);
+          border: 1px solid var(--card-edge); border-radius: 14px; }
+  .note p { margin: .35rem 0; }
+  .formula { overflow-x: auto; font: 500 .92rem/1.5 ui-monospace, "SF Mono", Menlo, monospace;
+             font-variant-numeric: tabular-nums; }
+  .calculator { margin: 1.4rem 0 1.7rem; padding: 1.1rem 1.2rem 1.2rem; background: var(--card);
+                border: 1px solid var(--card-edge); border-radius: 14px; }
+  .calculator fieldset { margin: 0; padding: 0; border: 0; }
+  .calculator legend { font-weight: 700; margin-bottom: .8rem; }
+  .input-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem 1rem; }
+  .input-grid label { display: grid; gap: .25rem; color: #777; font-size: .82rem; }
+  .input-grid input { box-sizing: border-box; width: 100%; padding: .55rem .65rem;
+                      font: inherit; font-variant-numeric: tabular-nums;
+                      color: inherit; background: Canvas; border: 1px solid #8888;
+                      border-radius: 8px; }
+  .calculator button { margin-top: 1rem; padding: .6rem .85rem; border: 0; border-radius: 8px;
+                       color: white; background: var(--brass); font: inherit;
+                       font-weight: 600; font-size: .95rem; line-height: 1.2;
+                       cursor: pointer; }
+  .calculator button:focus-visible, .input-grid input:focus-visible {
+    outline: 3px solid var(--steel); outline-offset: 2px;
+  }
+  .result { margin-top: 1rem; padding-top: .9rem; border-top: 1px solid var(--card-edge); }
+  .result p { margin: .25rem 0; }
+  .result strong { color: var(--brass); }
+  .result .numbers { font: 500 .9rem/1.55 ui-monospace, "SF Mono", Menlo, monospace;
+                     font-variant-numeric: tabular-nums; color: #777; }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; }
+  th, td { text-align: left; vertical-align: top; padding: .55rem .65rem;
+           border-bottom: 1px solid var(--card-edge); }
+  th { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: #777; }
+  .cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .cta img { height: 54px; display: block; }
+  .cta p { color: #777; font-size: .9rem; line-height: 1.45; }
+  @media (max-width: 30rem) {
+    h1 { font-size: 1.85rem; }
+    .lede { font-size: 1.18rem; }
+    th, td { padding-left: .35rem; padding-right: .35rem; }
+    .input-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav><a href="index.html">Hairspring home</a> · <a href="why-timegrapher-readings-change.html">Why readings change</a> · <a href="how-to-read-a-timegrapher.html">Read a timegrapher</a> · <a href="mechanical-watch-accuracy-calculator.html">Daily accuracy calculator</a></nav>
+
+<main>
+<article>
+<h1>Timegrapher repeatability calculator</h1>
+<p class="lede">Enter two mechanical-watch rate readings and their fit
+uncertainty. The calculator tells you whether the measurements support each
+other under the same setup.</p>
+
+<div class="calculator" id="calculator">
+<form id="repeatability-form">
+<fieldset>
+<legend>Compare two readings</legend>
+<div class="input-grid">
+<label>First rate (s/d)
+<input id="first-rate" name="first-rate" type="number" step="any" value="2.1" required inputmode="decimal">
+</label>
+<label>First fit uncertainty ± (s/d)
+<input id="first-error" name="first-error" type="number" step="any" min="0" value="0.4" required inputmode="decimal">
+</label>
+<label>Second rate (s/d)
+<input id="second-rate" name="second-rate" type="number" step="any" value="2.3" required inputmode="decimal">
+</label>
+<label>Second fit uncertainty ± (s/d)
+<input id="second-error" name="second-error" type="number" step="any" min="0" value="0.4" required inputmode="decimal">
+</label>
+</div>
+<button type="submit">Compare readings</button>
+</fieldset>
+</form>
+<div class="result" id="repeatability-result" aria-live="polite">
+<p><strong>These readings agree.</strong></p>
+<p class="numbers">0.2 s/d apart · 2.0 s/d agreement limit</p>
+<p>The difference is inside the agreement limit. Keep the pair as repeatable evidence under this setup.</p>
+</div>
+<noscript><p>This calculator runs locally in your browser and requires JavaScript. The formula and worked examples remain available below.</p></noscript>
+</div>
+
+<div class="note">
+<p><strong>What the verdict means:</strong> agreement demonstrates repeatability
+under these conditions. It does not prove calibration against a trusted
+reference, and it does not diagnose the watch.</p>
+</div>
+
+<h2>The comparison rule</h2>
+<p>Each rate fit has its own standard error. The calculator combines both errors
+in quadrature, doubles that combined uncertainty, and compares it with a
+practical 2.0 seconds-per-day floor:</p>
+
+<div class="note formula">
+difference = |second rate − first rate|<br>
+combined uncertainty = √(first error² + second error²)<br>
+agreement limit = max(2 × combined uncertainty, 2.0 s/d)
+</div>
+
+<p>The readings agree when their difference is less than or equal to the
+agreement limit. The 2.0 s/d floor covers ordinary between-session changes that
+a fit's within-run standard error cannot see, including small differences in
+placement, wind state, temperature, and the watch itself.</p>
+
+<table>
+<thead><tr><th>First</th><th>Second</th><th>Difference</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>+2.1 ± 0.4 s/d</td><td>+2.3 ± 0.4 s/d</td><td>0.2 s/d</td><td>Agree</td></tr>
+<tr><td>+2.1 ± 0.4 s/d</td><td>+6.8 ± 0.5 s/d</td><td>4.7 s/d</td><td>Check again</td></tr>
+</tbody>
+</table>
+
+<h2>How to get useful inputs</h2>
+<ol>
+<li>Use two fresh measurements rather than continuing the first fit.</li>
+<li>Keep the watch in the same position and state of wind.</li>
+<li>Do not move the watch or phone while either run is settling.</li>
+<li>Enter each rate and the fit uncertainty reported beside that rate.</li>
+<li>If the pair disagrees, re-seat the watch and repeat before trusting either number.</li>
+</ol>
+
+<p>The longer guide explains <a href="why-timegrapher-readings-change.html">why
+timegrapher readings change between tests</a>, how repeatability differs from
+accuracy, and which setup differences matter most.</p>
+
+<h2>Measure and save the evidence with Hairspring</h2>
+<p>Hairspring is an iPhone timegrapher for mechanical watches. It measures rate,
+beat error, live amplitude, and common beat rates; states statistical fit
+uncertainty; withholds results the signal cannot defend; and saves a two-run
+agreement receipt in History and PDF reports.</p>
+
+<div class="cta">
+<a href="https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448">
+<img src="appstore-badge.svg" alt="Download Hairspring on the App Store">
+</a>
+<p>One $9.99 purchase. No subscription, account, ads, analytics, or automatic uploads.</p>
+</div>
+
+<h2>Frequently asked questions</h2>
+<h3>How do I compare two timegrapher readings?</h3>
+<p>Enter both rate readings and each run's fit uncertainty. The calculator
+compares their absolute difference with the larger of twice their combined
+uncertainty and a 2.0 s/d floor.</p>
+
+<h3>Do agreeing readings prove that a timegrapher is accurate?</h3>
+<p>No. Agreement demonstrates repeatability under the recorded conditions, not
+calibration against a known reference. Two readings can agree while sharing the
+same systematic bias.</p>
+
+<h3>Why is there a 2 seconds-per-day floor?</h3>
+<p>Fit uncertainty describes scatter inside each run. It cannot capture every
+small change between runs, so the floor prevents unrealistically tight
+comparisons when both internal error bars are tiny.</p>
+
+<h3>Does this calculator upload my readings?</h3>
+<p>No. The calculation runs in your browser. There is no account, analytics, or
+submission endpoint. The <a href="https://github.com/kapella-hub/timegrapher-repeatability-calculator">tested source is public</a>.</p>
+</article>
+</main>
+
+<footer>
+<a href="index.html">Hairspring home</a> ·
+<a href="iphone-watch-timegrapher.html">Timegrapher guide</a> ·
+<a href="how-to-read-a-timegrapher.html">Read results</a> ·
+<a href="why-timegrapher-readings-change.html">Why readings change</a> ·
+<a href="mechanical-watch-accuracy-calculator.html">Daily accuracy calculator</a> ·
+<a href="https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448">App Store</a> ·
+<a href="privacy.html">Privacy Policy</a> · © 2026 Marat Oganesyan
+</footer>
+
+<script type="module">
+import { compareReadings } from "./scripts/repeatability.mjs";
+
+const form = document.getElementById("repeatability-form");
+const result = document.getElementById("repeatability-result");
+const value = id => Number(document.getElementById(id).value);
+const number = input => input.toFixed(1);
+
+form.addEventListener("submit", event => {
+  event.preventDefault();
+
+  try {
+    const comparison = compareReadings({
+      firstRate: value("first-rate"),
+      firstStandardError: value("first-error"),
+      secondRate: value("second-rate"),
+      secondStandardError: value("second-error"),
+    });
+
+    result.innerHTML = comparison.agrees
+      ? `<p><strong>These readings agree.</strong></p>
+         <p class="numbers">${number(comparison.difference)} s/d apart · ${number(comparison.agreementLimit)} s/d agreement limit</p>
+         <p>The difference is inside the agreement limit. Keep the pair as repeatable evidence under this setup.</p>`
+      : `<p><strong>Check again.</strong></p>
+         <p class="numbers">${number(comparison.difference)} s/d apart · ${number(comparison.agreementLimit)} s/d agreement limit</p>
+         <p>The difference exceeds the agreement limit. Re-seat the watch and repeat the test before trusting either rate.</p>`;
+  } catch {
+    result.innerHTML = "<p><strong>Enter four valid numbers.</strong></p><p>Fit uncertainty must be zero or greater.</p>";
+  }
+});
+</script>
+
+</body>
+</html>

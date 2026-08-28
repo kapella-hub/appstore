@@ -15,7 +15,7 @@ iPhone and is never uploaded.
 ## Try and learn
 
 - [Calculate a mechanical watch's daily gain or loss](https://kapella-hub.github.io/appstore/mechanical-watch-accuracy-calculator.html)
-- [Try the free repeatability calculator](https://kapella-hub.github.io/appstore/why-timegrapher-readings-change.html) · [view its tested source](https://github.com/kapella-hub/timegrapher-repeatability-calculator)
+- [Try the free repeatability calculator](https://kapella-hub.github.io/appstore/timegrapher-repeatability-calculator.html) · [view its tested source](https://github.com/kapella-hub/timegrapher-repeatability-calculator)
 - [Learn how to use an iPhone as a watch timegrapher](https://kapella-hub.github.io/appstore/iphone-watch-timegrapher.html)
 - [Compare four current iPhone timegrapher apps](https://kapella-hub.github.io/appstore/iphone-timegrapher-apps-compared.html)
 - [Learn how to read rate, trace, beat error, amplitude, and BPH](https://kapella-hub.github.io/appstore/how-to-read-a-timegrapher.html)
