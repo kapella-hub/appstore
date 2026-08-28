@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>iPhone Timegrapher vs WeiShi: Which Should You Use?</title>
+<meta name="description" content="Compare an iPhone watch timegrapher with a WeiShi bench machine: sensors, rate, beat error, amplitude, limits, and a fair test protocol.">
+<link rel="canonical" href="https://kapella-hub.github.io/appstore/iphone-timegrapher-vs-weishi.html">
+<meta name="apple-itunes-app" content="app-id=6797146448">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hairspring">
+<meta property="og:title" content="iPhone timegrapher vs WeiShi">
+<meta property="og:description" content="What each tool measures, where the setups differ, and how to compare them without cherry-picking one reading.">
+<meta property="og:url" content="https://kapella-hub.github.io/appstore/iphone-timegrapher-vs-weishi.html">
+<meta property="og:image" content="https://kapella-hub.github.io/appstore/social/hairspring-repeatability.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hairspring compares two mechanical-watch rate readings and reports that they agree.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kapella-hub.github.io/appstore/social/hairspring-repeatability.png">
+<meta name="twitter:image:alt" content="Hairspring compares two mechanical-watch rate readings and reports that they agree.">
+
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1c1917">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "iPhone Timegrapher vs WeiShi: Which Should You Use?",
+      "description": "A practical comparison of phone and dedicated bench timegraphers, including a fair test protocol.",
+      "datePublished": "2026-08-28",
+      "dateModified": "2026-08-28",
+      "author": { "@type": "Person", "name": "Marat Oganesyan" },
+      "publisher": { "@type": "Organization", "name": "Hairspring" },
+      "mainEntityOfPage": "https://kapella-hub.github.io/appstore/iphone-timegrapher-vs-weishi.html",
+      "image": "https://kapella-hub.github.io/appstore/social/hairspring-repeatability.png"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is an iPhone timegrapher as accurate as a WeiShi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That cannot be established from one matching reading. A dedicated bench timegrapher has a controlled pickup and holder; a phone uses its built-in microphone. Compare repeated rate measurements under documented conditions before drawing a conclusion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can an iPhone replace a WeiShi timegrapher?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An iPhone app is useful for portable checks, position comparisons, and saved records. A dedicated bench timegrapher is the better tool for regulation and repair work that needs a controlled sensor and stable holder."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do phone and bench timegraphers show different amplitude?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Amplitude is inferred from event timing and an assumed lift angle rather than observed directly. Different pickups, event detection, signal quality, and lift-angle settings can therefore produce different estimates."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    color-scheme: light dark;
+    --brass: #a8853c;
+    --steel: #3a5fa8;
+    --card: #f7f5f1;
+    --card-edge: #e4dfd5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --brass: #cca85c; --steel: #7d9fe0; --card: #26221e; --card-edge: #3c362e; }
+  }
+  body { max-width: 44rem; margin: 3rem auto; padding: 0 1.25rem;
+         font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  h1 { font-family: ui-serif, "New York", Georgia, serif;
+       font-size: 2.2rem; line-height: 1.15; margin-bottom: .6rem;
+       letter-spacing: -0.02em; text-wrap: balance; }
+  h2 { font-size: 1.08rem; margin-top: 2.5rem; padding-bottom: .3rem;
+       border-bottom: 1px solid var(--brass); }
+  h3 { font-size: 1rem; margin-bottom: .2rem; }
+  h3 + p { margin-top: .2rem; }
+  a { color: var(--brass); }
+  nav, footer { color: #777; font-size: .9rem; }
+  nav { margin-bottom: 2.2rem; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #8884; }
+  .lede { font-family: ui-serif, "New York", Georgia, serif;
+          font-size: 1.3rem; line-height: 1.4; text-wrap: balance; }
+  .note { margin: 1.5rem 0; padding: 1rem 1.2rem; background: var(--card);
+          border: 1px solid var(--card-edge); border-radius: 14px; }
+  .note p { margin: .35rem 0; }
+  .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+  table { width: 100%; min-width: 36rem; border-collapse: collapse; }
+  th, td { text-align: left; vertical-align: top; padding: .6rem .65rem;
+           border-bottom: 1px solid var(--card-edge); }
+  th { font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: #777; }
+  th:first-child, td:first-child { width: 22%; }
+  .protocol { padding-left: 1.3rem; }
+  .protocol li { margin-bottom: .8rem; padding-left: .2rem; }
+  .worksheet td:not(:first-child) { font-variant-numeric: tabular-nums; }
+  .worksheet td { height: 1.7rem; }
+  .cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .cta img { height: 54px; display: block; }
+  .cta p { color: #777; font-size: .9rem; line-height: 1.45; }
+  .fine { color: #777; font-size: .85rem; }
+  @media print {
+    nav, .cta, footer { display: none; }
+    body { margin: 0; max-width: none; }
+    .worksheet { break-inside: avoid; }
+  }
+  @media (max-width: 30rem) {
+    h1 { font-size: 1.85rem; }
+    .lede { font-size: 1.18rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav><a href="index.html">Hairspring home</a> · <a href="iphone-watch-timegrapher.html">iPhone guide</a> · <a href="why-timegrapher-readings-change.html">Repeatability</a></nav>
+
+<main>
+<article>
+<h1>iPhone timegrapher vs WeiShi: which should you use?</h1>
+<p class="lede">A phone app wins on convenience and saved evidence. A dedicated
+bench timegrapher wins on controlled pickup and stable positioning. The useful
+question is not which screen looks more professional; it is which setup answers
+the question you actually have.</p>
+
+<div class="note">
+<p><strong>Quick verdict:</strong> use an iPhone timegrapher for portable checks,
+repeat measurements, position comparisons, and history. Use a WeiShi or another
+dedicated bench machine when you are regulating or servicing a movement and need
+a repeatable holder and contact pickup. One matching reading does not prove that
+the instruments are equivalent.</p>
+</div>
+
+<h2>Phone app and bench machine compared</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Question</th><th>iPhone timegrapher</th><th>WeiShi bench timegrapher</th></tr></thead>
+<tbody>
+<tr><td>Pickup</td><td>The phone's built-in microphone hears the watch through the air and surface.</td><td>A dedicated microphone or contact pickup holds the watch against a sensor.</td></tr>
+<tr><td>Positioning</td><td>You place the watch beside the phone and must reproduce that setup between runs.</td><td>The holder supports repeatable dial and crown positions.</td></tr>
+<tr><td>Main readings</td><td>Rate, beat rate, beat error, and an amplitude estimate, depending on the app and signal.</td><td>Rate, beat rate, beat error, and amplitude, with features varying by model.</td></tr>
+<tr><td>Best use</td><td>Quick checks, repeated measurements, position runs, saved history, and portable troubleshooting.</td><td>Bench regulation, repair work, and controlled comparisons while the movement is accessible.</td></tr>
+<tr><td>Main limit</td><td>Room noise, surface, placement, and the phone's acoustic path can change the signal.</td><td>Results still depend on correct settings, pickup contact, position, wind state, and interpretation.</td></tr>
+<tr><td>Evidence</td><td>Hairspring saves uncertainty, repeatability verdicts, position runs, history, and PDF receipts.</td><td>Saving, printing, and export behavior depends on the particular model.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>WeiShi names a family of dedicated timing machines, not one universal
+specification. Features and controls vary by model. The comparison here is about
+the normal phone-versus-bench workflow, not a claim about every WeiShi product.</p>
+
+<h2>Compare rate first</h2>
+<p>Rate is the cleanest cross-device comparison because both instruments estimate
+how the observed beat timing projects into seconds gained or lost per day. Even
+then, rate is a snapshot of one position and one state of wind. It is not the
+same thing as the watch's full-day performance on a wrist.</p>
+
+<p>Before comparing the phone with the bench machine, make sure each instrument
+can repeat itself. Two phone readings that differ widely do not become credible
+because one happens to match the WeiShi. The same rule applies to a bench
+reading taken with poor pickup contact.</p>
+
+<h2>Why beat error and amplitude may differ</h2>
+<h3>The sensors hear different signals</h3>
+<p>A phone microphone receives sound through air, the case, and the supporting
+surface. A bench pickup couples more directly to the watch. The instruments may
+therefore identify different parts of the escapement's acoustic signature.</p>
+
+<h3>Amplitude is an estimate</h3>
+<p>A timegrapher does not watch the balance wheel swing. It infers amplitude from
+the timing between selected escapement events and an assumed lift angle. A wrong
+lift angle, weak signal, or different event detector can move the result.
+Hairspring shows amplitude as a range because the phone method supports several
+defensible event choices rather than one perfectly exact degree value.</p>
+
+<h3>Beat error depends on identifying tick and tock</h3>
+<p>Beat error describes their timing asymmetry. Noise or an acoustic event that
+one detector accepts and another rejects can change the estimate. Treat a large
+or unstable value as a reason to improve the setup and repeat the test, not as a
+complete diagnosis by itself.</p>
+
+<h2>A fair phone-versus-WeiShi test</h2>
+<ol class="protocol">
+<li><strong>Choose one watch and one position.</strong> Fully wind the watch,
+let it settle for a minute, and begin dial up. Do not compare dial-up phone data
+with crown-down bench data.</li>
+<li><strong>Record the settings.</strong> Note the nominal beat rate, lift angle
+used by the bench machine, watch position, start time, and run length. If the
+movement's lift angle is unknown, label it as an assumption.</li>
+<li><strong>Get two readings from each setup.</strong> Repeat without changing
+the watch inside that setup. Do not keep only the reading closest to the other
+instrument.</li>
+<li><strong>Reverse the order.</strong> After rewinding and settling the watch,
+run the bench pair first and the phone pair second. This makes time and mainspring
+state less likely to favor one instrument.</li>
+<li><strong>Judge repeatability before agreement.</strong> Compare the two phone
+runs with each other and the two bench runs with each other. Only then compare
+the midpoint of each pair.</li>
+<li><strong>Repeat in another position.</strong> One dial-up match cannot validate
+every position, movement, case, or beat rate.</li>
+</ol>
+
+<h2>Printable comparison worksheet</h2>
+<p>Record every run rather than the best-looking result. Add notes about noise,
+placement, lift angle, or a refused measurement.</p>
+
+<div class="table-wrap worksheet">
+<table>
+<thead><tr><th>Run</th><th>Position</th><th>Rate</th><th>Beat error</th><th>Amplitude</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Phone 1</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Phone 2</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>WeiShi 1</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>WeiShi 2</td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>For the phone pair, use the free
+<a href="why-timegrapher-readings-change.html#calculator">timegrapher
+repeatability calculator</a> to test whether the two rate readings support each
+other. Agreement demonstrates repeatability under those conditions, not
+calibration against the bench machine.</p>
+
+<h2>How to read the outcome</h2>
+<h3>Neither setup repeats</h3>
+<p>Stop the cross-device comparison. Check wind state, position, pickup contact,
+room noise, and run length first.</p>
+
+<h3>Both repeat, and their rate midpoints are close</h3>
+<p>That is useful evidence for this watch, position, and state of wind. It is not
+proof that the instruments will agree on a different movement or on amplitude.</p>
+
+<h3>Both repeat, but their rate midpoints differ</h3>
+<p>Check beat-rate selection, bench settings, phone placement, pickup contact,
+and clock calibration. A stable difference can be systematic; repeating the same
+bias does not reveal which instrument is closer to a trusted reference.</p>
+
+<h3>Rate agrees, but amplitude does not</h3>
+<p>Do not force the amplitude numbers to match. Confirm the lift-angle assumption
+and remember that the sensors and event detectors are different. Use the bench
+instrument and a watchmaker's judgment when amplitude affects a service or
+regulation decision.</p>
+
+<h2>Try the phone side with Hairspring</h2>
+<p>Hairspring measures rate with statistical fit uncertainty, beat error, and a
+live amplitude range. It asks for a second measurement, states whether the two
+rates agree, and saves the evidence in History and a PDF receipt. A signal it
+cannot defend produces a reasoned refusal instead of a plausible number.</p>
+
+<div class="cta">
+<a href="https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448">
+<img src="appstore-badge.svg" alt="Download Hairspring on the App Store">
+</a>
+<p>One $9.99 purchase. No subscription, account, ads, analytics, or automatic uploads.</p>
+</div>
+
+<h2>Frequently asked questions</h2>
+<h3>Is an iPhone timegrapher as accurate as a WeiShi?</h3>
+<p>One matching result cannot establish that. Compare repeated measurements under
+documented conditions, then use a trusted reference if calibration matters.</p>
+
+<h3>Can an iPhone replace a WeiShi timegrapher?</h3>
+<p>It can replace the need to own hardware for many portable checks and position
+comparisons. It should not replace a controlled bench tool for movement
+regulation, repair, or diagnosis.</p>
+
+<h3>Why do the amplitude readings differ?</h3>
+<p>Amplitude depends on event timing, lift angle, signal quality, and detector
+choices. A phone and contact pickup do not receive identical acoustic signals.</p>
+
+<p class="fine">Hairspring is not affiliated with WeiShi or its manufacturers.
+WeiShi is used here only to identify a commonly searched category of dedicated
+watch timing machines.</p>
+</article>
+</main>
+
+<footer>
+<a href="index.html">Hairspring home</a> ·
+<a href="iphone-watch-timegrapher.html">iPhone guide</a> ·
+<a href="why-timegrapher-readings-change.html">Repeatability</a> ·
+<a href="mechanical-watch-accuracy-calculator.html">Accuracy calculator</a> ·
+<a href="press.html">Press</a> ·
+<a href="privacy.html">Privacy Policy</a> · © 2026 Marat Oganesyan
+</footer>
+
+</body>
+</html>
