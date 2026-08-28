@@ -17,6 +17,7 @@ iPhone and is never uploaded.
 - [Calculate a mechanical watch's daily gain or loss](https://kapella-hub.github.io/appstore/mechanical-watch-accuracy-calculator.html)
 - [Try the free repeatability calculator](https://kapella-hub.github.io/appstore/why-timegrapher-readings-change.html)
 - [Learn how to use an iPhone as a watch timegrapher](https://kapella-hub.github.io/appstore/iphone-watch-timegrapher.html)
+- [Learn how to read rate, trace, beat error, amplitude, and BPH](https://kapella-hub.github.io/appstore/how-to-read-a-timegrapher.html)
 - [Compare an iPhone timegrapher with a WeiShi bench machine](https://kapella-hub.github.io/appstore/iphone-timegrapher-vs-weishi.html)
 - [Read the measurement limits and troubleshooting guide](https://kapella-hub.github.io/appstore/)
 - [Download Hairspring from the App Store](https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448)
