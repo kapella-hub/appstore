@@ -114,6 +114,11 @@
   .note { margin: 1.5rem 0; padding: 1rem 1.2rem; background: var(--card);
           border: 1px solid var(--card-edge); border-radius: 14px; }
   .note p { margin: .35rem 0; }
+  .jump-link { display: inline-block; margin-top: .25rem; padding: .75rem 1rem;
+               border-radius: 8px; color: white; background: var(--brass);
+               font-weight: 600; text-decoration: none; }
+  .jump-link:hover { background: #725622; }
+  .jump-link:focus-visible { outline: 3px solid var(--steel); outline-offset: 2px; }
   .formula { overflow-x: auto; font: 500 .92rem/1.5 ui-monospace, "SF Mono", Menlo, monospace;
              font-variant-numeric: tabular-nums; }
   .calculator { margin: 1.7rem 0; padding: 1.1rem 1.2rem 1.2rem; background: var(--card);
@@ -127,7 +132,8 @@
                       color: inherit; background: Canvas; border: 1px solid #8888;
                       border-radius: 8px; }
   .calculator button { margin-top: 1rem; padding: .6rem .85rem; border: 0; border-radius: 8px;
-                       color: white; background: var(--brass); font: 600 .95rem/1.2 inherit;
+                       color: white; background: var(--brass); font: inherit;
+                       font-weight: 600; font-size: .95rem; line-height: 1.2;
                        cursor: pointer; }
   .calculator button:focus-visible, .input-grid input:focus-visible {
     outline: 3px solid var(--steel); outline-offset: 2px;
@@ -173,6 +179,7 @@ setup changed, or the measurement was noisy.</p>
 position or wind state. If the two readings agree within a limit that accounts
 for both runs' uncertainty, you have stronger evidence. If they do not, fix the
 setup and measure again before trusting either number.</p>
+<p><a class="jump-link" href="#calculator">Try the free repeatability calculator</a></p>
 </div>
 
 <h2>Four reasons the same watch gives different readings</h2>
