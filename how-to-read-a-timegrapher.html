@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Read a Timegrapher: Rate, Trace &amp; Beat Error</title>
+<meta name="description" content="Read a mechanical-watch timegrapher in the right order: signal, rate, trace, repeatability, beat error, amplitude, beat rate, and real-world context.">
+<link rel="canonical" href="https://kapella-hub.github.io/appstore/how-to-read-a-timegrapher.html">
+<meta name="theme-color" content="#101312">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hairspring">
+<meta property="og:title" content="How to Read a Timegrapher Without Overreading It">
+<meta property="og:description" content="Learn what rate, the timing trace, beat error, amplitude, and BPH can support—and why one clean-looking snapshot is not a diagnosis.">
+<meta property="og:url" content="https://kapella-hub.github.io/appstore/how-to-read-a-timegrapher.html">
+<meta property="og:image" content="https://kapella-hub.github.io/appstore/social/hairspring-repeatability.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hairspring compares two mechanical-watch timegrapher readings and reports whether they agree.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Read a Timegrapher Without Overreading It">
+<meta name="twitter:description" content="A safer order for interpreting rate, trace, beat error, amplitude, and BPH.">
+<meta name="twitter:image" content="https://kapella-hub.github.io/appstore/social/hairspring-repeatability.png">
+<meta name="twitter:image:alt" content="Hairspring compares two mechanical-watch timegrapher readings and reports whether they agree.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How to Read a Timegrapher: Rate, Trace and Beat Error",
+      "description": "A measurement-first guide to interpreting a mechanical-watch timegrapher without treating one snapshot as a diagnosis.",
+      "datePublished": "2026-08-28",
+      "dateModified": "2026-08-28",
+      "author": {"@type": "Organization", "name": "Hairspring"},
+      "publisher": {"@type": "Organization", "name": "Hairspring"},
+      "mainEntityOfPage": "https://kapella-hub.github.io/appstore/how-to-read-a-timegrapher.html",
+      "image": "https://kapella-hub.github.io/appstore/social/hairspring-repeatability.png"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What should I read first on a timegrapher?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Read the signal and stability before the headline numbers. Confirm the beat rate, let the result settle, inspect the timing trace for coherent behavior, and repeat the run before interpreting rate, beat error, or amplitude."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do the lines on a timegrapher mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On a conventional timing diagram, upward slope indicates a gaining rate, downward slope indicates a losing rate, and flat lines indicate zero rate error. Separation between the tick and tock traces represents beat error. Phone apps may use a different chart, so read its labels before applying paper-tape rules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are good timegrapher readings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no single healthy range for every caliber, position, wind state, and measurement method. Compare the result with the movement maker's specification, test several positions, repeat under controlled conditions, and compare a multi-day clock check with the short timegrapher snapshot."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a good timegrapher rate prove good wrist accuracy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A timegrapher rate is a short measurement in one position and state of wind. Real-world daily performance combines many positions, temperatures, activity levels, and mainspring states."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root { color-scheme: light dark; --ink:#202521; --muted:#626962; --paper:#f4f1e8; --panel:#ebe6da; --line:#c9c2b4; --green:#3f6f57; --steel:#4d6a76; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.65; color:var(--ink); background:var(--paper); }
+nav, main, footer { max-width:820px; margin:auto; padding-left:24px; padding-right:24px; }
+nav { padding-top:22px; padding-bottom:22px; font-size:.93rem; }
+a { color:var(--green); text-underline-offset:3px; }
+main { padding-top:38px; padding-bottom:58px; }
+article { max-width:740px; }
+h1 { font-family:Georgia,serif; font-size:clamp(2.25rem,7vw,4.2rem); line-height:1.03; font-weight:400; letter-spacing:-.035em; margin:0 0 22px; text-wrap:balance; }
+h2 { font-family:Georgia,serif; font-size:1.75rem; line-height:1.2; font-weight:400; margin:54px 0 16px; }
+h3 { font-size:1.03rem; margin:30px 0 7px; }
+p, li { font-size:1.04rem; }
+.lede { font-size:1.28rem; line-height:1.5; color:var(--muted); max-width:690px; }
+.note { background:var(--panel); border-left:4px solid var(--green); padding:14px 20px; margin:30px 0; }
+.note p { margin:0; }
+.reading-order { counter-reset:reading; list-style:none; margin:28px 0; padding:0; display:grid; gap:10px; }
+.reading-order li { counter-increment:reading; display:grid; grid-template-columns:36px 1fr; gap:10px; align-items:start; }
+.reading-order li::before { content:counter(reading); width:30px; height:30px; border:1px solid var(--line); border-radius:50%; display:grid; place-items:center; font:600 .86rem/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--green); }
+.diagram { margin:30px 0; padding:18px; background:#111613; border-radius:10px; overflow:hidden; }
+.diagram svg { display:block; width:100%; height:auto; }
+.diagram figcaption { color:#bbc6bd; font-size:.9rem; margin-top:12px; }
+.table-wrap { overflow-x:auto; margin:24px 0; }
+table { border-collapse:collapse; width:100%; min-width:610px; }
+th, td { border-bottom:1px solid var(--line); padding:12px 10px; text-align:left; vertical-align:top; }
+th { font-size:.84rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+.source { font-size:.94rem; color:var(--muted); }
+.cta { border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:50px 0 0; padding:30px 0; }
+.cta img { width:190px; height:auto; }
+.cta p { color:var(--muted); font-size:.91rem; line-height:1.45; }
+footer { border-top:1px solid var(--line); padding-top:24px; padding-bottom:38px; font-size:.9rem; color:var(--muted); }
+@media (prefers-color-scheme:dark) {
+  :root { --ink:#e8ece7; --muted:#aab2ab; --paper:#101312; --panel:#1a211d; --line:#38413a; --green:#8bc5a5; --steel:#96b7c4; }
+}
+@media print {
+  nav, .cta, footer { display:none; }
+  body { background:#fff; color:#111; }
+  main { padding:0; }
+  .diagram { break-inside:avoid; }
+}
+</style>
+</head>
+<body>
+
+<nav><a href="index.html">Hairspring home</a> · <a href="iphone-watch-timegrapher.html">iPhone guide</a> · <a href="why-timegrapher-readings-change.html">Repeatability</a></nav>
+
+<main>
+<article>
+<h1>How to read a timegrapher without overreading it</h1>
+<p class="lede">A timegrapher can show rate, a timing trace, beat error,
+amplitude, and beat rate. The order matters: decide whether the measurement is
+coherent before deciding what its numbers mean.</p>
+
+<div class="note">
+<p><strong>Short answer:</strong> check signal and settings, read rate with its
+uncertainty, inspect the trace, repeat the run, and only then interpret beat
+error and amplitude in the context of that movement, position, and state of
+wind. A clean-looking snapshot is evidence, not a service diagnosis.</p>
+</div>
+
+<h2>The safer reading order</h2>
+<ol class="reading-order">
+<li><span><strong>Signal and settings.</strong> Is the cadence locked, the watch
+untouched, and the nominal beat rate plausible? Is the lift angle known or only
+assumed?</span></li>
+<li><span><strong>Rate and uncertainty.</strong> Read the sign, the seconds per
+day, and any interval or stability indicator together.</span></li>
+<li><span><strong>Timing trace.</strong> Look for a coherent slope or cluster,
+not merely one attractive number at the top of the screen.</span></li>
+<li><span><strong>Repeatability.</strong> Run the same setup again. If the two
+rates do not support each other, stop interpreting the finer metrics.</span></li>
+<li><span><strong>Beat error and amplitude.</strong> Use them with the correct
+lift angle, movement design, pickup method, and manufacturer guidance.</span></li>
+<li><span><strong>Real-world context.</strong> Compare positions and then check
+the watch against a reference clock over several days.</span></li>
+</ol>
+
+<h2>1. Start with the measurement conditions</h2>
+<p>A timegrapher listens to the escapement during a short run. The result belongs
+to that watch position, wind state, temperature, pickup, and time window. Change
+one of those and the result may change even when nothing is wrong.</p>
+
+<p>Grand Seiko's own mechanical-watch instructions make the same distinction:
+normal-use accuracy varies with mainspring wind, temperature, and position, and
+should be judged from mean daily rate over roughly a week rather than one day.
+That does not make a timegrapher unhelpful. It defines the question the
+instrument actually answers: <em>how is this watch behaving here and now?</em></p>
+
+<p class="source">Primary reference: <a href="https://www.grand-seiko.com/instructions/html/GS_9SC5_en/AGFISYdxjctuxj">Grand Seiko, cautions for mechanical-watch accuracy</a>.</p>
+
+<h2>2. Read rate as a signed estimate</h2>
+<p><strong>Rate</strong> projects the observed timing error into seconds per day,
+written as s/d. A positive rate means the watch is gaining; a negative rate
+means it is losing. Zero means no detected rate error during that run.</p>
+
+<p>Do not detach the value from its precision. “+4.2 s/d ± 0.3” is a stronger
+statement than “+4.2 s/d ± 7.0,” even though both have the same headline rate.
+If an instrument provides no uncertainty, use stability over time and a repeated
+run as practical checks against false precision.</p>
+
+<p>There is no universal “good” rate for every watch. Compare the result with the
+maker's specification for that caliber and with the watch's real behavior. A
+short dial-up result can differ from the daily average assembled from many wrist
+positions.</p>
+
+<h2>3. Read the timing trace</h2>
+<p>A conventional timing diagram plots detected ticks and tocks as the tape
+moves. Its geometry provides a visual check on the rate and beat-error numbers.</p>
+
+<figure class="diagram">
+<svg viewBox="0 0 720 370" role="img" aria-labelledby="trace-title trace-desc">
+  <title id="trace-title">Four simplified conventional timegrapher traces</title>
+  <desc id="trace-desc">Flat superimposed lines show zero rate and no beat error. Upward lines show a gaining rate. Downward lines show a losing rate. Two separated parallel lines show beat error.</desc>
+  <rect width="720" height="370" rx="8" fill="#111613"/>
+  <g stroke="#26332b" stroke-width="1">
+    <path d="M20 82H700M20 172H700M20 262H700M185 20V350M365 20V350M545 20V350"/>
+  </g>
+  <g fill="#cbd6cd" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="16">
+    <text x="32" y="34">Flat</text><text x="212" y="34">Gaining</text><text x="392" y="34">Losing</text><text x="572" y="34">Beat error</text>
+  </g>
+  <g stroke-linecap="round" fill="none" stroke-width="4">
+    <path d="M35 180L170 180" stroke="#8bc5a5"/>
+    <path d="M215 205L350 145" stroke="#8bc5a5"/>
+    <path d="M395 145L530 205" stroke="#8bc5a5"/>
+    <path d="M575 166L695 166M575 194L695 194" stroke="#96b7c4"/>
+  </g>
+  <g fill="#aab6ad" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="13">
+    <text x="32" y="334">zero slope</text><text x="212" y="334">positive slope</text><text x="392" y="334">negative slope</text><text x="572" y="334">tick/tock separation</text>
+  </g>
+</svg>
+<figcaption>Simplified paper-tape conventions. Real traces contain scatter, and
+their direction can depend on the display orientation.</figcaption>
+</figure>
+
+<ul>
+<li><strong>Flat:</strong> no rate error is visible over the plotted interval.</li>
+<li><strong>Upward slope:</strong> the conventional display indicates a gaining watch.</li>
+<li><strong>Downward slope:</strong> it indicates a losing watch.</li>
+<li><strong>Two separated traces:</strong> the tick and tock timing is asymmetric; greater separation represents greater beat error.</li>
+<li><strong>Scatter, waves, or breaks:</strong> the timing is varying or the pickup is not producing one clean, stable event stream. The shape alone rarely identifies one unique cause.</li>
+</ul>
+
+<p>The official Bergeon Accuracy Motion manual describes the same conventional
+rules: positive and negative slopes indicate gain and loss, flat lines indicate
+zero rate error, and tick/tock line separation represents beat error.</p>
+
+<p><strong>Phone-chart caution:</strong> not every app draws a conventional
+paper tape. Hairspring plots tick and tock timing deviations as colored points
+against seconds and milliseconds. Read that scatter for coherence and separation;
+do not infer “up means fast” unless the chart's axes and documentation say so.</p>
+
+<p class="source">Primary reference: <a href="https://www.bergeon.swiss/downloads/dl/file/id/1926/product/1833703/ONEOF_Accuracy_Motion_User_Manual_EN.pdf">Bergeon Accuracy Motion user manual</a>, Diagram view.</p>
+
+<h2>4. Read beat error after the trace is stable</h2>
+<p><strong>Beat error</strong>, in milliseconds, describes asymmetry between the
+tick and tock halves of the escapement cycle. On a conventional diagram it is
+represented by separation between the two traces.</p>
+
+<p>A stable value can be useful. An unstable value is first a reason to check
+pickup, noise, movement compatibility, and repetition. It is not enough by
+itself to name a damaged part or prescribe an adjustment. The same numerical
+result can have different significance across movement designs and service
+contexts.</p>
+
+<h2>5. Treat amplitude as model-dependent</h2>
+<p><strong>Amplitude</strong>, in degrees, estimates how far the balance swings.
+On an acoustic timegrapher the calculation depends on which escapement events
+the instrument identifies and on the entered lift angle. A wrong lift angle can
+move the amplitude result without changing rate.</p>
+
+<p>Witschi's professional acoustic instruments therefore include a manually
+selected lift angle. Its combined WisioScope adds optical measurement specifically
+to determine actual lift angle and amplitude independently of that assumption.
+That distinction is useful whenever two acoustic tools disagree: the displayed
+degree value is not a direct camera measurement of the balance wheel.</p>
+
+<p>Hairspring reports a live amplitude range rather than implying that a phone
+microphone supports one exact degree value. Compare like with like: same watch,
+position, wind state, lift-angle assumption, and pickup method.</p>
+
+<p class="source">Primary references: <a href="https://www.witschi.com/en/products/chronomaster-auto/">Witschi ChronoMaster Auto</a> and <a href="https://www.witschi.com/en/products/wisioscope-2/">Witschi WisioScope</a>.</p>
+
+<h2>6. Confirm beat rate, or BPH</h2>
+<p><strong>Beat rate</strong> is the movement's nominal cadence in beats per hour.
+It is a setting or classification, not a health score. If the detected BPH is
+implausible for the caliber, stop: every downstream calculation may be based on
+the wrong cadence. Hairspring automatically detects the common beat rates it
+supports and visibly resets when the detected cadence changes.</p>
+
+<h2>What common result patterns support</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>What you see</th><th>What the evidence supports</th><th>Next check</th></tr></thead>
+<tbody>
+<tr><td>Stable rate, coherent trace, repeated run agrees</td><td>A repeatable rate for this position and state of wind</td><td>Test another position and compare with multi-day use</td></tr>
+<tr><td>Rate settles, then drifts as the run continues</td><td>The behavior is changing during the measurement</td><td>Check wind state, settling time, handling, and trace</td></tr>
+<tr><td>Scattered or broken trace</td><td>The instrument is not receiving one stable timing stream</td><td>Improve pickup and quiet; repeat before diagnosing the watch</td></tr>
+<tr><td>Two clean, separated conventional traces</td><td>Measurable tick/tock asymmetry on that setup</td><td>Confirm the numerical beat error and repeat</td></tr>
+<tr><td>Amplitude differs between tools</td><td>The methods or assumptions may differ</td><td>Check lift angle, pickup, position, and each tool's repeatability</td></tr>
+<tr><td>Good snapshot but poor wrist timekeeping</td><td>One bench position does not represent daily use</td><td>Log daily offset and compare several positions</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Why universal “good reading” tables mislead</h2>
+<p>A threshold table is appealing because it converts three numbers into a
+verdict. It also discards the movement specification, watch position, wind
+state, temperature, measurement method, and uncertainty. Those omissions can
+turn a useful screening tool into false confidence.</p>
+
+<p>Use the movement maker's specification when one is available. For everyday
+performance, compare the watch with a reference clock over several days. For
+service or regulation decisions, use controlled positions, correct settings,
+a repeatable pickup, and a watchmaker's movement-specific judgment.</p>
+
+<h2>Repeat before you interpret</h2>
+<ol>
+<li>Wind the watch and document the position.</li>
+<li>Leave the watch and sensor untouched until the result settles.</li>
+<li>Save the rate and its uncertainty or stability indicator.</li>
+<li>Repeat the same setup without selecting the better-looking run.</li>
+<li>If the pair agrees, move to another position. If it does not, fix the setup before interpreting beat error or amplitude.</li>
+</ol>
+
+<p>Use the free <a href="why-timegrapher-readings-change.html#calculator">timegrapher repeatability calculator</a> to compare two rates and their fit uncertainty. The companion <a href="mechanical-watch-accuracy-calculator.html">mechanical-watch accuracy calculator</a> turns a longer clock comparison into mean seconds per day.</p>
+
+<h2>Read it with Hairspring</h2>
+<p>Hairspring is an iPhone timegrapher that reports rate with statistical fit
+uncertainty, shows the live tick/tock timing scatter, records positions, and asks
+for a second measurement. It saves both runs and the agreement verdict in History
+and in a PDF receipt. When the signal cannot support a result, it says why.</p>
+
+<div class="cta">
+<a href="https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448">
+<img src="appstore-badge.svg" alt="Download Hairspring on the App Store">
+</a>
+<p>One $9.99 purchase. No subscription, account, ads, analytics, or automatic uploads.</p>
+</div>
+
+<h2>Frequently asked questions</h2>
+<h3>What should I read first on a timegrapher?</h3>
+<p>Read the signal and stability before the headline numbers. Confirm the beat
+rate, let the result settle, inspect the trace, and repeat the run before
+interpreting rate, beat error, or amplitude.</p>
+
+<h3>What do the lines on a timegrapher mean?</h3>
+<p>On a conventional diagram, upward slope indicates gain, downward slope
+indicates loss, flat lines indicate zero rate error, and separation between the
+tick and tock traces represents beat error. Phone apps may draw different axes.</p>
+
+<h3>What are good timegrapher readings?</h3>
+<p>There is no universal range for every caliber and condition. Compare against
+the movement maker's specification, repeat the test, measure several positions,
+and check real-world accuracy over several days.</p>
+
+<h3>Does a good timegrapher rate prove good wrist accuracy?</h3>
+<p>No. It is a short measurement in one position and one state of wind. Daily
+performance combines many positions, temperatures, activity levels, and
+mainspring states.</p>
+</article>
+</main>
+
+<footer>
+<a href="index.html">Hairspring home</a> ·
+<a href="iphone-watch-timegrapher.html">Use an iPhone timegrapher</a> ·
+<a href="iphone-timegrapher-vs-weishi.html">iPhone vs WeiShi</a> ·
+<a href="why-timegrapher-readings-change.html">Repeatability calculator</a> ·
+<a href="mechanical-watch-accuracy-calculator.html">Accuracy calculator</a>
+</footer>
+</body>
+</html>
