@@ -1,11 +1,11 @@
 HAIRSPRING — FACT SHEET
 ========================
 
-App name        Hairspring Timegrapher
+App name        Hairspring: Watch Timegrapher
 Developer       Marat Oganesyan (independent)
-Released        August 2026 (version 1.0)
-Price           Free — no subscription, no in-app purchase, no ads,
-                no account, no sign-in
+Released        August 2026 (current version 1.0.2)
+Price           Paid upfront ($9.99 USD; localized by storefront) — no
+                subscription, no in-app purchase, no ads, no account
 Platform        iPhone, iOS 18 or later (iPhone only, by design:
                 the measurement wants the handset lying flat with the
                 watch beside the bottom microphone)
@@ -20,14 +20,15 @@ Hairspring measures how well a mechanical watch keeps time, using the
 iPhone microphone — and tells you when it can't.
 
 WHAT IT DOES
-- Rate in seconds per day, with its measurement uncertainty computed
+- Rate in seconds per day, with statistical fit uncertainty computed
   from the actual scatter of the detected beats
 - Beat error, measured from the escapement's own high-frequency signature
-- Amplitude, reported as a band, because that is what the acoustic
+- Live amplitude, shown as a band, because that is what the acoustic
   method honestly supports
-- Timing graph, position runs, PDF reports, measurement history
+- Timing graph, position runs, measurement history, PDF measurement receipts
 - Measure the same watch twice and Hairspring states whether the two
-  readings statistically agree — the check no other timegrapher app offers
+  readings statistically agree, then saves both readings, the verdict,
+  and analysis version in History and the PDF
 
 WHAT MAKES IT DIFFERENT
 Hairspring refuses a rate it cannot defend. Too much scatter, an

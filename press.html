@@ -64,19 +64,20 @@
 </header>
 
 <p>Hairspring measures how well a mechanical watch keeps time, using the
-iPhone microphone — and tells you when it can't. Every reading carries its
-own uncertainty; when the signal won't support a number, the app says so
+iPhone microphone — and tells you when it can't. Every rate carries its
+statistical fit uncertainty; when the signal won't support a number, the app says so
 and names the fix instead of printing something plausible. Its signature
 check: measure the same watch twice, and it states whether the two
-readings agree.</p>
+readings agree. The saved History entry and PDF keep both readings, their
+fit uncertainty, the agreement limit, verdict, and analysis version.</p>
 
 <h2>Fact sheet</h2>
 <table class="facts">
-<tr><td>App name</td><td>Hairspring Timegrapher</td></tr>
+<tr><td>App name</td><td>Hairspring: Watch Timegrapher</td></tr>
 <tr><td>Developer</td><td>Marat Oganesyan (independent)</td></tr>
-<tr><td>Released</td><td>August 2026, version 1.0</td></tr>
-<tr><td>Price</td><td>Free — no subscription, no in-app purchase, no ads,
-no account</td></tr>
+<tr><td>Released</td><td>August 2026, current version 1.0.2</td></tr>
+<tr><td>Price</td><td>Paid upfront ($9.99 USD; Apple localizes by storefront) —
+no subscription, no in-app purchase, no ads, no account</td></tr>
 <tr><td>Platform</td><td>iPhone, iOS 18+ (iPhone only by design — the
 measurement wants the handset flat with the watch beside the bottom
 microphone)</td></tr>
@@ -90,9 +91,9 @@ analysed on device and never transmitted by the app.</td></tr>
 <p>Phone timegrapher apps have a credibility problem the watch forums
 know well: put the same watch down twice and you often get two confident
 numbers that disagree by more than either implies. Hairspring is built
-around refusing to play that game. Rate comes with an uncertainty
-computed from the actual scatter of the detected beats; amplitude is a
-band, because deriving it from escapement noise supports several
+around refusing to play that game. Rate comes with statistical fit uncertainty
+computed from the actual scatter of the detected beats; live amplitude is
+shown as a band, because deriving it from escapement noise supports several
 defensible answers tens of degrees apart; and a reading the signal cannot
 back is withheld, with the cause and the fix stated.</p>
 <p>The engineering discipline matches the interface. The analysis band
@@ -102,7 +103,8 @@ first candidate failed its own criteria and is recorded as a failure.
 Every App Store screenshot is rendered by the shipping binary from states
 the pipeline can really produce, showing figures the project actually
 measured.</p>
-<p>It is free with nothing gated, collects no data, and needs no account.
+<p>One upfront purchase includes every feature; there is no subscription or
+in-app purchase. Hairspring collects no data and needs no account.
 A phone microphone is not a bench machine, and Hairspring's own support
 page says so — rate is what the method does best, and the rest is
 reported with its limits stated.</p>
@@ -111,10 +113,11 @@ reported with its limits stated.</p>
 <p>Framed 6.9&Prime; App Store screenshots below; the download includes
 these plus unframed device captures (1320&times;2868) and the app icon.</p>
 <ul class="shots">
-<li><figure><a href="press/shot-measures.png"><img src="press/shot-measures.png" alt="Hairspring measuring a watch: +7.5 s/d with ±0.1 uncertainty, amplitude band, beat error"></a><figcaption>A rate with its uncertainty</figcaption></figure></li>
+<li><figure><a href="press/shot-measures.png"><img src="press/shot-measures.png" alt="Hairspring measuring a watch: +7.5 s/d with ±0.1 statistical fit uncertainty, amplitude band, beat error"></a><figcaption>A rate with statistical fit uncertainty</figcaption></figure></li>
 <li><figure><a href="press/shot-verifies.png"><img src="press/shot-verifies.png" alt="Verification: two readings 0.1 s/d apart, declared in agreement"></a><figcaption>Measure twice, see if they agree</figcaption></figure></li>
 <li><figure><a href="press/shot-refuses.png"><img src="press/shot-refuses.png" alt="A withheld reading: the app states why it cannot measure and what to change"></a><figcaption>A refusal, with its cause</figcaption></figure></li>
 <li><figure><a href="press/shot-positions.png"><img src="press/shot-positions.png" alt="Position runs: dial up, dial down, crown down rates compared"></a><figcaption>Position runs</figcaption></figure></li>
+<li><figure><a href="press/shot-receipt.png"><img src="press/shot-receipt.png" alt="Saved rate-verification receipt with both readings, agreement verdict, and analysis version"></a><figcaption>A saved verification receipt</figcaption></figure></li>
 <li><figure><a href="press/shot-placement.png"><img src="press/shot-placement.png" alt="Placement guide: watch beside the phone near the bottom microphone"></a><figcaption>The placement guide</figcaption></figure></li>
 </ul>
 
@@ -122,7 +125,7 @@ these plus unframed device captures (1320&times;2868) and the app icon.</p>
 <div class="download">
 <p><a href="press/hairspring-press-kit.zip"><strong>Download the press kit</strong></a>
 <span class="size">(zip, ~5 MB)</span> — fact sheet, app icon (1024&times;1024),
-five framed App Store screenshots, five unframed device captures.</p>
+six framed App Store screenshots, six unframed device captures.</p>
 <p><a href="press/hairspring-icon-1024.png">App icon alone</a>
 <span class="size">(PNG, 1024&times;1024)</span></p>
 </div>

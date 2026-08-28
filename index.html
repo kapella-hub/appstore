@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hairspring — iPhone timegrapher for mechanical watches</title>
-<meta name="description" content="Hairspring measures your mechanical watch's rate, beat error, and amplitude with the iPhone microphone — and states the uncertainty of every reading. Free, no subscription, no account, measured entirely on device.">
+<title>Hairspring: Watch Timegrapher for iPhone</title>
+<meta name="description" content="Measure a mechanical watch's rate, beat error, and amplitude with an iPhone. Statistical fit uncertainty, repeatability checks, one purchase, and no subscription.">
 <link rel="canonical" href="https://kapella-hub.github.io/appstore/">
 
 <!-- iOS Safari shows a native banner linking to the listing. -->
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hairspring">
 <meta property="og:title" content="Hairspring — iPhone timegrapher for mechanical watches">
-<meta property="og:description" content="Rate, beat error, and amplitude by microphone — every reading with its uncertainty stated. Measure twice and Hairspring tells you whether the readings agree.">
+<meta property="og:description" content="Rate, beat error, and amplitude by microphone — with statistical fit uncertainty on every rate. Measure twice and Hairspring tells you whether the readings agree.">
 <meta property="og:url" content="https://kapella-hub.github.io/appstore/">
 <meta property="og:image" content="https://kapella-hub.github.io/appstore/icon-512.png">
 <meta name="twitter:card" content="summary">
@@ -27,11 +27,11 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Hairspring Timegrapher",
+  "name": "Hairspring: Watch Timegrapher",
   "operatingSystem": "iOS",
   "applicationCategory": "UtilitiesApplication",
-  "description": "A timegrapher for mechanical watches. Measures rate, beat error, and amplitude with the iPhone microphone, states the uncertainty of every reading, and tells you when it cannot measure.",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "A timegrapher for mechanical watches. Measures rate, beat error, and amplitude with the iPhone microphone, states statistical fit uncertainty for each rate, and tells you when it cannot measure.",
+  "offers": { "@type": "Offer", "price": "9.99", "priceCurrency": "USD" },
   "url": "https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448",
   "author": { "@type": "Person", "name": "Marat Oganesyan" },
   "image": "https://kapella-hub.github.io/appstore/icon-512.png"
@@ -107,8 +107,8 @@
   </div>
 </header>
 
-<p class="lede">Any app can print a rate. Hairspring measures again — and tells
-you whether the two readings <em>agree</em>.</p>
+<p class="lede">Any app can print a rate. Hairspring measures again, tells you
+whether the two readings <em>agree</em>, and saves the evidence.</p>
 
 <figure class="specimen">
   <!-- A timegrapher trace: tick and tock rows, climbing at the measured rate. -->
@@ -137,7 +137,7 @@ you whether the two readings <em>agree</em>.</p>
     <tr><td>Run 2</td><td>+2.3 ± 0.4 s/d</td></tr>
     <tr class="verdict"><td>Verdict</td><td>The readings agree</td></tr>
   </table>
-  <figcaption>Every reading carries its uncertainty. When the signal won't
+  <figcaption>Every rate carries its statistical fit uncertainty. When the signal won't
   support a number, Hairspring says so — and names the fix — instead of
   printing something plausible.</figcaption>
 </figure>
@@ -146,20 +146,24 @@ you whether the two readings <em>agree</em>.</p>
   <a href="https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448">
     <img src="appstore-badge.svg" alt="Download on the App Store">
   </a>
-  <p>Free. No subscription, no account, no uploads —<br>
-  every measurement stays on your iPhone.</p>
+  <p>One upfront purchase. No subscription, no account, no automatic uploads —<br>
+  your data stays on your iPhone unless you choose to export it.</p>
 </div>
+
+<p>New to timing a watch by sound? Read the practical
+<a href="iphone-watch-timegrapher.html">iPhone watch timegrapher guide</a> for
+placement, measurement, and result-reading advice.</p>
 
 <h2>What it reports</h2>
 <p>Lay the phone flat, set the watch beside it, and Hairspring listens to the
 escapement itself:</p>
 <ul>
-<li><strong>Rate</strong> in seconds per day, with its measurement uncertainty</li>
+<li><strong>Rate</strong> in seconds per day, with statistical fit uncertainty</li>
 <li><strong>Beat error</strong>, measured from the escapement's own
 high&#8209;frequency signature</li>
-<li><strong>Amplitude</strong>, reported as a band because that is what the
-method supports</li>
-<li><strong>Timing graph</strong>, position runs, PDF reports, and history</li>
+<li><strong>Amplitude</strong>, shown during measurement as a band because that
+is what the method supports</li>
+<li><strong>Timing graph</strong>, position runs, history, and PDF measurement receipts</li>
 </ul>
 <p>It needs a mechanical (not quartz) watch. Rate is the measurement this
 method does best; amplitude and beat error are reported with their limits
@@ -231,6 +235,7 @@ it by email only if you choose.</p>
 
 <footer>
 <a href="https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448">App Store</a> ·
+<a href="iphone-watch-timegrapher.html">Timegrapher guide</a> ·
 <a href="press.html">Press</a> ·
 <a href="privacy.html">Privacy Policy</a> · © 2026 Marat Oganesyan
 </footer>
