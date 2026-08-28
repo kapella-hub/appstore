@@ -14,6 +14,7 @@ iPhone and is never uploaded.
 
 ## Try and learn
 
+- [Calculate a mechanical watch's daily gain or loss](https://kapella-hub.github.io/appstore/mechanical-watch-accuracy-calculator.html)
 - [Try the free repeatability calculator](https://kapella-hub.github.io/appstore/why-timegrapher-readings-change.html)
 - [Learn how to use an iPhone as a watch timegrapher](https://kapella-hub.github.io/appstore/iphone-watch-timegrapher.html)
 - [Read the measurement limits and troubleshooting guide](https://kapella-hub.github.io/appstore/)

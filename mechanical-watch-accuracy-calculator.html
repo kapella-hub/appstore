@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mechanical Watch Accuracy Calculator: Seconds per Day</title>
+<meta name="description" content="Calculate a mechanical watch's daily gain or loss from two clock comparisons. Convert elapsed time and offset change into signed seconds per day.">
+<link rel="canonical" href="https://kapella-hub.github.io/appstore/mechanical-watch-accuracy-calculator.html">
+<meta name="apple-itunes-app" content="app-id=6797146448">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hairspring">
+<meta property="og:title" content="Mechanical watch accuracy calculator">
+<meta property="og:description" content="Enter two clock offsets and the elapsed time to calculate how many seconds per day your watch gained or lost.">
+<meta property="og:url" content="https://kapella-hub.github.io/appstore/mechanical-watch-accuracy-calculator.html">
+<meta property="og:image" content="https://kapella-hub.github.io/appstore/social/hairspring-repeatability.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hairspring compares mechanical-watch timing readings and reports the evidence behind the result.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kapella-hub.github.io/appstore/social/hairspring-repeatability.png">
+<meta name="twitter:image:alt" content="Hairspring compares mechanical-watch timing readings and reports the evidence behind the result.">
+
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1c1917">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Mechanical Watch Accuracy Calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "url": "https://kapella-hub.github.io/appstore/mechanical-watch-accuracy-calculator.html#calculator",
+      "description": "Calculate a watch's signed rate in seconds per day from its change in clock offset over an elapsed interval."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I calculate a watch's seconds per day?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Subtract the starting clock offset from the ending offset, then multiply by 24 and divide by the elapsed hours. A positive result means the watch gained time; a negative result means it lost time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long should I track a mechanical watch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A longer interval makes a one-second observation error less influential. At 24 hours, a one-second offset error changes the result by 1 second per day; at 72 hours, it changes the result by about 0.33 seconds per day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does daily wear differ from a timegrapher reading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A timegrapher measures a short snapshot in one position and state of wind. Daily wear combines changing positions, motion, temperature, and mainspring torque over many hours."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    color-scheme: light dark;
+    --brass: #a8853c;
+    --steel: #3a5fa8;
+    --card: #f7f5f1;
+    --card-edge: #e4dfd5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --brass: #cca85c; --steel: #7d9fe0; --card: #26221e; --card-edge: #3c362e; }
+  }
+  body { max-width: 42rem; margin: 3rem auto; padding: 0 1.25rem;
+         font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  h1 { font-family: ui-serif, "New York", Georgia, serif;
+       font-size: 2.2rem; line-height: 1.15; margin-bottom: .6rem;
+       letter-spacing: -0.02em; text-wrap: balance; }
+  h2 { font-size: 1.08rem; margin-top: 2.5rem; padding-bottom: .3rem;
+       border-bottom: 1px solid var(--brass); }
+  h3 { font-size: 1rem; margin-bottom: .2rem; }
+  h3 + p { margin-top: .2rem; }
+  a { color: var(--brass); }
+  nav, footer { color: #777; font-size: .9rem; }
+  nav { margin-bottom: 2.2rem; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #8884; }
+  .lede { font-family: ui-serif, "New York", Georgia, serif;
+          font-size: 1.3rem; line-height: 1.4; text-wrap: balance; }
+  .note { margin: 1.5rem 0; padding: 1rem 1.2rem; background: var(--card);
+          border: 1px solid var(--card-edge); border-radius: 14px; }
+  .note p { margin: .35rem 0; }
+  .formula { overflow-x: auto; font: 500 .92rem/1.5 ui-monospace, "SF Mono", Menlo, monospace;
+             font-variant-numeric: tabular-nums; }
+  .calculator { margin: 1.7rem 0; padding: 1.1rem 1.2rem 1.2rem; background: var(--card);
+                border: 1px solid var(--card-edge); border-radius: 14px; }
+  .calculator fieldset { margin: 0; padding: 0; border: 0; }
+  .calculator legend { font-weight: 700; margin-bottom: .8rem; }
+  .input-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem 1rem; }
+  .input-grid label { display: grid; gap: .25rem; color: #777; font-size: .82rem; }
+  .input-grid input { box-sizing: border-box; width: 100%; padding: .55rem .65rem;
+                      font: inherit; font-variant-numeric: tabular-nums;
+                      color: inherit; background: Canvas; border: 1px solid #8888;
+                      border-radius: 8px; }
+  .hint { grid-column: 1 / -1; margin: -.2rem 0 0; color: #777; font-size: .82rem; }
+  .calculator button { margin-top: 1rem; padding: .6rem .85rem; border: 0; border-radius: 8px;
+                       color: white; background: var(--brass); font: 600 .95rem/1.2 inherit;
+                       cursor: pointer; }
+  .calculator button:focus-visible, .input-grid input:focus-visible {
+    outline: 3px solid var(--steel); outline-offset: 2px;
+  }
+  .result { margin-top: 1rem; padding-top: .9rem; border-top: 1px solid var(--card-edge); }
+  .result p { margin: .25rem 0; }
+  .result strong { color: var(--brass); }
+  .result .numbers { font: 500 .9rem/1.55 ui-monospace, "SF Mono", Menlo, monospace;
+                     font-variant-numeric: tabular-nums; color: #777; }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; }
+  th, td { text-align: left; vertical-align: top; padding: .55rem .65rem;
+           border-bottom: 1px solid var(--card-edge); }
+  th { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: #777; }
+  .cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .cta img { height: 54px; display: block; }
+  .cta p { color: #777; font-size: .9rem; line-height: 1.45; }
+  @media (max-width: 30rem) {
+    h1 { font-size: 1.85rem; }
+    .lede { font-size: 1.18rem; }
+    th, td { padding-left: .35rem; padding-right: .35rem; }
+    .input-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav><a href="index.html">Hairspring home</a> · <a href="iphone-watch-timegrapher.html">iPhone timegrapher guide</a> · <a href="why-timegrapher-readings-change.html">Repeatability</a></nav>
+
+<main>
+<article>
+<h1>Mechanical watch accuracy calculator</h1>
+<p class="lede">Compare your watch with a trusted clock twice. This calculator
+turns the change in offset into the number of seconds it gained or lost per day.</p>
+
+<section class="calculator" id="calculator" aria-labelledby="calculator-title">
+<form id="accuracy-form">
+<fieldset>
+<legend id="calculator-title">Calculate seconds per day</legend>
+<div class="input-grid">
+<label>Starting offset (seconds)
+<input id="start-offset" name="start-offset" type="number" step="any" value="-2" required inputmode="decimal">
+</label>
+<label>Ending offset (seconds)
+<input id="end-offset" name="end-offset" type="number" step="any" value="10" required inputmode="decimal">
+</label>
+<p class="hint">Use positive numbers when the watch is ahead of the reference and negative numbers when it is behind.</p>
+<label>Elapsed days
+<input id="elapsed-days" name="elapsed-days" type="number" step="any" min="0" value="2" required inputmode="decimal">
+</label>
+<label>Additional hours
+<input id="elapsed-hours" name="elapsed-hours" type="number" step="any" min="0" value="0" required inputmode="decimal">
+</label>
+</div>
+<button type="submit">Calculate daily rate</button>
+</fieldset>
+</form>
+<div class="result" id="accuracy-result" aria-live="polite">
+<p><strong>Your watch gained 6.0 seconds per day.</strong></p>
+<p class="numbers">+12.0 seconds over 48.0 hours · +6.0 s/d</p>
+<p>A one-second offset-reading error would change this result by 0.5 s/d.</p>
+</div>
+<noscript><p>This calculator runs locally in your browser and requires JavaScript. The formula and worked examples remain available below.</p></noscript>
+</section>
+
+<div class="note">
+<p><strong>What this measures:</strong> the average rate over the whole interval,
+including every position, motion, temperature, and state of wind the watch
+experienced. It is not the same as a short timegrapher reading in one position.</p>
+</div>
+
+<h2>The formula</h2>
+<p>First find how much the watch's offset changed. If it began 2 seconds behind
+and ended 10 seconds ahead, it gained 12 seconds. Then scale that change to one
+day:</p>
+
+<div class="note formula">
+offset change = ending offset − starting offset<br>
+seconds per day = offset change × 24 ÷ elapsed hours
+</div>
+
+<table>
+<thead><tr><th>Start</th><th>End</th><th>Elapsed</th><th>Rate</th></tr></thead>
+<tbody>
+<tr><td>−2 s</td><td>+10 s</td><td>48 h</td><td>+6.0 s/d</td></tr>
+<tr><td>+8 s</td><td>−1 s</td><td>72 h</td><td>−3.0 s/d</td></tr>
+<tr><td>+4 s</td><td>+4 s</td><td>24 h</td><td>0.0 s/d</td></tr>
+</tbody>
+</table>
+
+<p>A positive result means the watch gained time. A negative result means it
+lost time. The calculator does not label a result good or bad because the
+appropriate comparison depends on the movement, manufacturer specification,
+service condition, and how the watch is worn.</p>
+
+<h2>How to make the comparison useful</h2>
+<ol>
+<li>Fully wind the watch and note its position relative to a trusted clock.</li>
+<li>Write the offset as a signed number: ahead is positive, behind is negative.</li>
+<li>Wear or store the watch normally without resetting it.</li>
+<li>After at least a day, compare it with the same reference and record the new offset.</li>
+<li>Enter both offsets and the exact elapsed interval above.</li>
+<li>Repeat the observation across several intervals before treating one result as typical.</li>
+</ol>
+
+<h2>Why a longer interval helps</h2>
+<p>Reading an analog seconds hand or tapping at the exact reference second can
+easily introduce a one-second observation error. Over 6 hours, one second of
+error changes the calculated rate by 4.0 s/d. Over 24 hours it changes the rate
+by 1.0 s/d; over 72 hours, about 0.33 s/d. Longer tracking does not remove real
+changes in the watch, but it reduces the leverage of small reading errors.</p>
+
+<h2>Daily accuracy and timegrapher rate answer different questions</h2>
+<p>This calculator measures the watch's average behavior during real use. A
+timegrapher listens to the escapement for a short interval and estimates the
+current rate in one position and state of wind. Daily wear blends many positions;
+a timegrapher helps isolate them.</p>
+
+<p>Use the long-run number to learn what the watch does on your wrist. Use a
+timegrapher to investigate why: compare dial up with crown down, test full wind
+against later in the reserve, and repeat a measurement to see whether the result
+is stable.</p>
+
+<h2>Measure the watch by sound with Hairspring</h2>
+<p>Hairspring is an iPhone timegrapher for mechanical watches. It measures rate,
+beat error, live amplitude, and common beat rates; states statistical fit
+uncertainty; withholds results the signal cannot defend; and compares two fresh
+runs to tell you whether they agree.</p>
+
+<div class="cta">
+<a href="https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448">
+<img src="appstore-badge.svg" alt="Download Hairspring on the App Store">
+</a>
+<p>One $9.99 purchase. No subscription, account, ads, analytics, or automatic uploads.</p>
+</div>
+
+<h2>Frequently asked questions</h2>
+<h3>How do I calculate a watch's seconds per day?</h3>
+<p>Subtract the starting clock offset from the ending offset, multiply by 24,
+and divide by the elapsed hours. A positive result means gain; a negative result
+means loss.</p>
+
+<h3>How long should I track a mechanical watch?</h3>
+<p>At least 24 hours makes a one-second observation error equivalent to 1.0 s/d
+or less. Several days reduce that sensitivity further and sample more of your
+normal wearing pattern.</p>
+
+<h3>Why does daily wear differ from a timegrapher reading?</h3>
+<p>A timegrapher measures a short snapshot in one position and state of wind.
+Daily wear combines changing positions, motion, temperature, and mainspring
+torque over many hours.</p>
+
+<h3>Can I use this calculator for a quartz watch?</h3>
+<p>The offset formula works for any clock or watch. Hairspring itself is designed
+for the acoustic escapement signal of a mechanical watch, not a quartz watch.</p>
+</article>
+</main>
+
+<footer>
+<a href="index.html">Hairspring home</a> ·
+<a href="iphone-watch-timegrapher.html">Timegrapher guide</a> ·
+<a href="why-timegrapher-readings-change.html">Repeatability</a> ·
+<a href="https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448">App Store</a> ·
+<a href="privacy.html">Privacy Policy</a> · © 2026 Marat Oganesyan
+</footer>
+
+<script>
+(() => {
+  const form = document.getElementById("accuracy-form");
+  const result = document.getElementById("accuracy-result");
+  const value = id => Number(document.getElementById(id).value);
+  const fixed = number => number.toFixed(1);
+  const signed = number => {
+    const normalized = Math.abs(number) < 0.05 ? 0 : number;
+    return `${normalized > 0 ? "+" : ""}${fixed(normalized)}`;
+  };
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const startOffset = value("start-offset");
+    const endOffset = value("end-offset");
+    const elapsedDays = value("elapsed-days");
+    const additionalHours = value("elapsed-hours");
+    const elapsedHours = elapsedDays * 24 + additionalHours;
+
+    if (![startOffset, endOffset, elapsedDays, additionalHours].every(Number.isFinite)
+        || elapsedDays < 0 || additionalHours < 0 || elapsedHours <= 0) {
+      result.innerHTML = "<p><strong>Enter a valid interval.</strong></p><p>Offsets must be numbers, elapsed time cannot be negative, and the total interval must be greater than zero.</p>";
+      return;
+    }
+
+    const change = endOffset - startOffset;
+    const rate = change * 24 / elapsedHours;
+    const sensitivity = 24 / elapsedHours;
+    const direction = Math.abs(rate) < 0.05 ? "was essentially unchanged" : rate > 0 ? "gained" : "lost";
+    const magnitude = Math.abs(rate);
+    const intervalNote = elapsedHours < 24
+      ? "This is a short interval; track for at least 24 hours before treating the result as typical."
+      : `A one-second offset-reading error would change this result by ${fixed(sensitivity)} s/d.`;
+
+    result.innerHTML = `<p><strong>Your watch ${direction}${Math.abs(rate) < 0.05 ? "" : ` ${fixed(magnitude)} seconds per day`}.</strong></p>
+      <p class="numbers">${signed(change)} seconds over ${fixed(elapsedHours)} hours · ${signed(rate)} s/d</p>
+      <p>${intervalNote}</p>`;
+  });
+})();
+</script>
+
+</body>
+</html>
