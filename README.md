@@ -18,6 +18,7 @@ iPhone and is never uploaded.
 - [Try the free repeatability calculator](https://kapella-hub.github.io/appstore/timegrapher-repeatability-calculator.html) · [view its tested source](https://github.com/kapella-hub/timegrapher-repeatability-calculator)
 - [Learn how to use an iPhone as a watch timegrapher](https://kapella-hub.github.io/appstore/iphone-watch-timegrapher.html)
 - [Compare four current iPhone timegrapher apps](https://kapella-hub.github.io/appstore/iphone-timegrapher-apps-compared.html)
+- [Choose between a free online timegrapher and a native iPhone app](https://kapella-hub.github.io/appstore/online-timegrapher-vs-iphone-app.html)
 - [Learn how to read rate, trace, beat error, amplitude, and BPH](https://kapella-hub.github.io/appstore/how-to-read-a-timegrapher.html)
 - [Compare an iPhone timegrapher with a WeiShi bench machine](https://kapella-hub.github.io/appstore/iphone-timegrapher-vs-weishi.html)
 - [Read the measurement limits and troubleshooting guide](https://kapella-hub.github.io/appstore/)
