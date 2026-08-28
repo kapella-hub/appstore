@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why Timegrapher Readings Change Between Tests | Hairspring</title>
+<meta name="description" content="Why the same mechanical watch gives different timegrapher readings, how to separate measurement noise from real variation, and when to measure again.">
+<link rel="canonical" href="https://kapella-hub.github.io/appstore/why-timegrapher-readings-change.html">
+<meta name="apple-itunes-app" content="app-id=6797146448">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hairspring">
+<meta property="og:title" content="Why timegrapher readings change between tests">
+<meta property="og:description" content="The same watch can produce different numbers because the watch changed, the setup changed, or the measurement was noisy. Here is how to tell the difference.">
+<meta property="og:url" content="https://kapella-hub.github.io/appstore/why-timegrapher-readings-change.html">
+<meta property="og:image" content="https://kapella-hub.github.io/appstore/press/shot-receipt.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1c1917">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Why Timegrapher Readings Change Between Tests",
+      "description": "How to separate measurement noise from real variation when repeated mechanical-watch timegrapher readings differ.",
+      "datePublished": "2026-08-28",
+      "dateModified": "2026-08-28",
+      "author": { "@type": "Person", "name": "Marat Oganesyan" },
+      "publisher": { "@type": "Organization", "name": "Hairspring" },
+      "mainEntityOfPage": "https://kapella-hub.github.io/appstore/why-timegrapher-readings-change.html",
+      "image": "https://kapella-hub.github.io/appstore/press/shot-receipt.png"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does my timegrapher give different readings for the same watch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The watch's position and state of wind may have changed, the acoustic setup may have changed, or one run may contain more timing scatter. A repeated test under controlled conditions helps separate those causes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How close should two timegrapher readings be?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no universal difference that proves agreement. The limit should account for the uncertainty of both measurements and ordinary short-term variation between sessions. Hairspring uses the larger of twice the combined fit uncertainty and a 2.0 seconds-per-day floor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do two agreeing readings prove that a timegrapher is accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Agreement demonstrates repeatability under those conditions, not calibration against a known reference. Two readings can agree while sharing the same systematic bias."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    color-scheme: light dark;
+    --brass: #a8853c;
+    --steel: #3a5fa8;
+    --card: #f7f5f1;
+    --card-edge: #e4dfd5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --brass: #cca85c; --steel: #7d9fe0; --card: #26221e; --card-edge: #3c362e; }
+  }
+  body { max-width: 42rem; margin: 3rem auto; padding: 0 1.25rem;
+         font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  h1 { font-family: ui-serif, "New York", Georgia, serif;
+       font-size: 2.2rem; line-height: 1.15; margin-bottom: .6rem;
+       letter-spacing: -0.02em; text-wrap: balance; }
+  h2 { font-size: 1.08rem; margin-top: 2.5rem; padding-bottom: .3rem;
+       border-bottom: 1px solid var(--brass); }
+  h3 { font-size: 1rem; margin-bottom: .2rem; }
+  h3 + p { margin-top: .2rem; }
+  a { color: var(--brass); }
+  nav, footer { color: #777; font-size: .9rem; }
+  nav { margin-bottom: 2.2rem; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #8884; }
+  .lede { font-family: ui-serif, "New York", Georgia, serif;
+          font-size: 1.3rem; line-height: 1.4; text-wrap: balance; }
+  .note { margin: 1.5rem 0; padding: 1rem 1.2rem; background: var(--card);
+          border: 1px solid var(--card-edge); border-radius: 14px; }
+  .note p { margin: .35rem 0; }
+  .formula { overflow-x: auto; font: 500 .92rem/1.5 ui-monospace, "SF Mono", Menlo, monospace;
+             font-variant-numeric: tabular-nums; }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; }
+  th, td { text-align: left; vertical-align: top; padding: .55rem .65rem;
+           border-bottom: 1px solid var(--card-edge); }
+  th { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: #777; }
+  td:first-child { width: 30%; }
+  figure { margin: 1.6rem 0; }
+  figure img { display: block; width: min(100%, 420px); height: auto; margin: 0 auto;
+               border: 1px solid var(--card-edge); border-radius: 16px; }
+  figcaption { color: #777; font-size: .85rem; margin-top: .5rem; text-align: center; }
+  .cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .cta img { height: 54px; display: block; }
+  .cta p { color: #777; font-size: .9rem; line-height: 1.45; }
+  @media (max-width: 30rem) {
+    h1 { font-size: 1.85rem; }
+    .lede { font-size: 1.18rem; }
+    th, td { padding-left: .35rem; padding-right: .35rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav><a href="index.html">Hairspring home</a> · <a href="iphone-watch-timegrapher.html">iPhone timegrapher guide</a></nav>
+
+<main>
+<article>
+<h1>Why timegrapher readings change between tests</h1>
+<p class="lede">Two different numbers do not automatically mean the watch is
+faulty or the instrument is wrong. First ask whether the watch changed, the
+setup changed, or the measurement was noisy.</p>
+
+<div class="note">
+<p><strong>Quick answer:</strong> repeat the test without changing the watch's
+position or wind state. If the two readings agree within a limit that accounts
+for both runs' uncertainty, you have stronger evidence. If they do not, fix the
+setup and measure again before trusting either number.</p>
+</div>
+
+<h2>Four reasons the same watch gives different readings</h2>
+<h3>1. The watch is in a different position</h3>
+<p>Gravity acts differently on a mechanical movement dial up, dial down, crown
+down, and in the other vertical positions. Positional variation is real watch
+behavior. Compare repeated runs in the same position before comparing one
+position with another.</p>
+
+<h3>2. The mainspring delivered different torque</h3>
+<p>A freshly wound watch and the same watch a day later are not the same test
+condition. As the mainspring unwinds, balance amplitude can fall and rate can
+move. For a repeatability check, wind once, let the watch settle, and perform
+both runs close together.</p>
+
+<h3>3. The acoustic setup changed</h3>
+<p>A phone timegrapher hears a very quiet mechanical signal. Moving the watch a
+centimeter, changing the surface, touching the phone, or introducing another
+ticking clock can change which sounds are detected. Keep the watch beside the
+bottom microphone on the same hard surface and leave it untouched during each
+run.</p>
+
+<h3>4. One run contains more timing scatter</h3>
+<p>A rate is estimated from many detected beats, not read directly from one
+tick. If their timing is scattered, the fitted rate is less precise. A useful
+reading therefore needs both a rate and an uncertainty derived from that run's
+actual residual scatter.</p>
+
+<h2>Repeatability is not the same as accuracy</h2>
+<p><strong>Repeatability</strong> asks whether successive measurements under the
+same conditions agree. <strong>Accuracy</strong> asks whether a measurement is
+close to a trusted reference. Two readings can agree with each other while both
+share the same bias. A repeatability check is valuable evidence, but it does not
+turn a phone microphone into a calibrated bench instrument.</p>
+
+<p>The timegrapher rate is also a snapshot of one position and one state of wind.
+It is not a promise of what the watch will gain or lose during a full day on the
+wrist.</p>
+
+<h2>How Hairspring decides whether two rates agree</h2>
+<p>Hairspring starts the second run with a fresh analyzer and detector state. It
+does not reuse the first run's fitted grid, because shared state would make the
+measurements agree by construction.</p>
+
+<p>For each rate, the app calculates a standard error from the timing fit. For
+two runs, it adds those errors in quadrature to estimate the uncertainty of the
+difference:</p>
+
+<div class="note formula">
+combined uncertainty = √(first error² + second error²)<br>
+agreement limit = max(2 × combined uncertainty, 2.0 s/d)
+</div>
+
+<p>The 2.0 s/d floor matters because a fit's standard error describes scatter
+inside one session. It cannot see small changes in placement, wind state,
+temperature, or the watch between sessions. Without that floor, two ordinary
+readings half a second apart could be mislabeled as a failure merely because
+both fits have tiny internal error bars.</p>
+
+<table>
+<thead><tr><th>Example</th><th>Difference</th><th>Agreement limit</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>+2.1 ± 0.4<br>+2.3 ± 0.4 s/d</td><td>0.2 s/d</td><td>2.0 s/d</td><td>Readings agree</td></tr>
+<tr><td>+2.1 ± 0.4<br>+6.8 ± 0.5 s/d</td><td>4.7 s/d</td><td>2.0 s/d</td><td>Check again</td></tr>
+</tbody>
+</table>
+
+<p>This rule is deliberately about whether the two measurements support each
+other. It is not a diagnosis of the watch. A disagreement tells you to re-seat
+the watch and repeat the test before drawing a conclusion.</p>
+
+<figure>
+<img src="press/shot-receipt.png" width="460" height="1000"
+     alt="Hairspring saved verification receipt showing two rate readings, their difference, agreement limit, and verdict">
+<figcaption>The saved receipt keeps both rates, their fit uncertainty, the
+difference, the agreement limit, verdict, and analysis version.</figcaption>
+</figure>
+
+<h2>A repeatable two-run test</h2>
+<ol>
+<li>Wind the watch fully and let it settle for a minute.</li>
+<li>Choose one position and record it.</li>
+<li>Lay the phone flat on a hard surface; place the watch beside the bottom microphone.</li>
+<li>Run the first measurement without touching the setup.</li>
+<li>Start a fresh second measurement in the same position and wind state.</li>
+<li>If the readings agree, save the pair. If they do not, re-seat the watch and test again.</li>
+<li>Only after repeatability is established should you compare other positions or a later state of wind.</li>
+</ol>
+
+<h2>When different readings are expected</h2>
+<table>
+<thead><tr><th>Comparison</th><th>What changed</th><th>What it can tell you</th></tr></thead>
+<tbody>
+<tr><td>Dial up vs. crown down</td><td>Position</td><td>Positional variation</td></tr>
+<tr><td>Full wind vs. 24 hours later</td><td>Mainspring torque</td><td>Rate stability across the reserve</td></tr>
+<tr><td>Bench vs. daily wear</td><td>Position, motion, temperature</td><td>Why a snapshot differs from lived accuracy</td></tr>
+<tr><td>Same setup, back to back</td><td>As little as practical</td><td>Measurement repeatability</td></tr>
+</tbody>
+</table>
+
+<h2>Measure twice with Hairspring</h2>
+<p>Hairspring is an iPhone timegrapher for mechanical watches. It measures rate,
+beat error, live amplitude, and common beat rates; withholds results the signal
+cannot defend; and saves two-run verification receipts in History and PDF.</p>
+
+<div class="cta">
+<a href="https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448">
+<img src="appstore-badge.svg" alt="Download Hairspring on the App Store">
+</a>
+<p>One $9.99 purchase. No subscription, account, ads, analytics, or automatic uploads.</p>
+</div>
+
+<h2>Frequently asked questions</h2>
+<h3>Why does my timegrapher give different readings for the same watch?</h3>
+<p>The watch's position or state of wind may have changed, the acoustic setup may
+have changed, or one run may contain more timing scatter. Repeat the test under
+controlled conditions to separate those causes.</p>
+
+<h3>How close should two timegrapher readings be?</h3>
+<p>There is no universal difference that proves agreement. The limit should
+account for the uncertainty of both runs and normal short-term variation between
+sessions. Hairspring uses the larger of twice the combined fit uncertainty and
+a 2.0 s/d floor.</p>
+
+<h3>Do two agreeing readings prove that a timegrapher is accurate?</h3>
+<p>No. Agreement demonstrates repeatability under those conditions, not
+calibration against a known reference.</p>
+</article>
+</main>
+
+<footer>
+<a href="index.html">Hairspring home</a> ·
+<a href="iphone-watch-timegrapher.html">iPhone timegrapher guide</a> ·
+<a href="https://apps.apple.com/us/app/hairspring-timegrapher/id6797146448">App Store</a> ·
+<a href="privacy.html">Privacy Policy</a> · © 2026 Marat Oganesyan
+</footer>
+
+</body>
+</html>
