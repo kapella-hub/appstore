@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hairspring updates</title>
+  <subtitle>Release notes and measurement resources for the Hairspring iPhone timegrapher.</subtitle>
+  <link href="https://kapella-hub.github.io/appstore/feed.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://kapella-hub.github.io/appstore/" rel="alternate" type="text/html"/>
+  <id>https://kapella-hub.github.io/appstore/</id>
+  <updated>2026-08-28T00:00:00Z</updated>
+  <author>
+    <name>Marat Oganesyan</name>
+  </author>
+  <entry>
+    <title>Hairspring 1.0.2 keeps repeatability evidence with each measurement</title>
+    <link href="https://kapella-hub.github.io/appstore/hairspring-1-0-2-repeatability-update.html" rel="alternate" type="text/html"/>
+    <id>https://kapella-hub.github.io/appstore/hairspring-1-0-2-repeatability-update.html</id>
+    <published>2026-08-27T21:29:36Z</published>
+    <updated>2026-08-28T00:00:00Z</updated>
+    <summary>Hairspring 1.0.2 preserves completed rate-verification evidence in History and PDF receipts, makes amplitude ranges consistent, and improves position summaries.</summary>
+    <content type="html">&lt;p&gt;Measure the same watch twice and Hairspring now keeps both rate readings, their fit uncertainties, the agreement limit, the verdict, and the analysis version with the saved measurement and its PDF receipt.&lt;/p&gt;&lt;p&gt;The update also makes amplitude ranges consistent across the app, keeps position summaries descriptive, and reports the installed version correctly.&lt;/p&gt;</content>
+  </entry>
+</feed>
